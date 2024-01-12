@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/Image">
+        <file>MenuBar/FetalStartRecord.png</file>
+        <file>MenuBar/FetalStopRecord.png</file>
+        <file>MenuBar/FetalStartRecord.svg</file>
+        <file>DigitalBar/FHR1Heart1.png</file>
+        <file>DigitalBar/FHR1Heart2.png</file>
+        <file>DigitalBar/FHR1Heart3.png</file>
+        <file>DigitalBar/FHR1Heart4.png</file>
+        <file>DigitalBar/FHR2Heart1.png</file>
+        <file>DigitalBar/FHR2Heart2.png</file>
+        <file>DigitalBar/FHR2Heart3.png</file>
+        <file>DigitalBar/FHR2Heart4.png</file>
+        <file>DigitalBar/FHR3Heart1.png</file>
+        <file>DigitalBar/FHR3Heart2.png</file>
+        <file>DigitalBar/FHR3Heart3.png</file>
+        <file>DigitalBar/FHR3Heart4.png</file>
+        <file>DigitalBar/Heart0.png</file>
+        <file>DigitalBar/FECGHeart1.png</file>
+        <file>DigitalBar/FECGHeart2.png</file>
+        <file>DigitalBar/FECGHeart3.png</file>
+        <file>DigitalBar/FECGHeart4.png</file>
+    </qresource>
+</RCC>

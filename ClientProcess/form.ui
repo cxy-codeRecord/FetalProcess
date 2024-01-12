@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QMainWindow" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="CMainView" name="mainView">
+   <widget class="CMenuBar" name="menuBar" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>130</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+background-color:&quot;#000000&quot;
+}</string>
+    </property>
+    <widget class="CPageButton" name="startRecordBtn">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>100</y>
+       <width>130</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+    <widget class="CPageButton" name="toolButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>130</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="CDigitalBar" name="digitalBar" native="true">
+    <property name="geometry">
+     <rect>
+      <x>129</x>
+      <y>0</y>
+      <width>1151</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget
+{
+background-color:&quot;#1E1E1E&quot;;
+}</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>10</y>
+       <width>100</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Resource/resource.qrc">:/Image/DigitalBar/FHR1Heart4.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>110</y>
+       <width>100</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Resource/resource.qrc">:/Image/DigitalBar/FHR3Heart4.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>110</y>
+       <width>100</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Resource/resource.qrc">:/Image/DigitalBar/FECGHeart4.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>1010</x>
+       <y>110</y>
+       <width>121</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+color:rgb(255,255,255);
+font:Bold 70px;
+}</string>
+     </property>
+     <property name="text">
+      <string>180</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>780</x>
+       <y>110</y>
+       <width>121</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+color:rgb(249,159,62);
+font:Bold 70px;
+}</string>
+     </property>
+     <property name="text">
+      <string>180</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>1010</x>
+       <y>10</y>
+       <width>121</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+color:rgb(1,147,207);
+font:Bold 70px;
+}</string>
+     </property>
+     <property name="text">
+      <string>180</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>780</x>
+       <y>10</y>
+       <width>121</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+color:rgb(221,89,139);
+font:Bold 70px;
+}</string>
+     </property>
+     <property name="text">
+      <string>180</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>10</y>
+       <width>100</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="Resource/resource.qrc">:/Image/DigitalBar/FHR2Heart4.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="CStatusBar" name="statusBar" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>720</y>
+      <width>1281</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget
+{
+background-color:&quot;#1E1E1E&quot;;
+}</string>
+    </property>
+   </widget>
+   <widget class="CTGView" name="ctgView" native="true">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>200</y>
+      <width>1151</width>
+      <height>521</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CTGView</class>
+   <extends>QWidget</extends>
+   <header location="global">CTGView/CTGView.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CMainView</class>
+   <extends>QWidget</extends>
+   <header location="global">CMainView/CMainView.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CDigitalBar</class>
+   <extends>QWidget</extends>
+   <header location="global">ClientBar/CDigitalBar/CDigitalBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CMenuBar</class>
+   <extends>QWidget</extends>
+   <header location="global">ClientBar/CMenuBar/CMenuBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CStatusBar</class>
+   <extends>QWidget</extends>
+   <header location="global">ClientBar/CStatusBar/CStatusBar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CPageButton</class>
+   <extends>QToolButton</extends>
+   <header location="global">../CustomControls/CPageButton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="Resource/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
