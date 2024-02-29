@@ -22,7 +22,7 @@ public:
     explicit CTGView(QWidget *parent = nullptr);
     ~CTGView();
 signals:
-    void signal_printerUnitState(int state);
+    void signalPrinterUnitState(int state);
 protected:
     void init();
     void initSetup();
@@ -38,6 +38,7 @@ protected:
     void initGrid();
     void initZoomStateYRange();
     void initModule();
+    void getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase>data);
 protected:
     double calculate1CM();
     double calculate2CM();

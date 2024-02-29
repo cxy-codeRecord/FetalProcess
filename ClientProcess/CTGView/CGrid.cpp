@@ -15,7 +15,7 @@ CGrid::CGrid(QCustomPlot *parent)
 
 void CGrid::initSettingYTick()
 {
-    double max_value = 300;
+    double max_value = 260;
     double per_value = 20;
     for(int i=0;i<=max_value;i+=per_value)
     {
@@ -40,17 +40,15 @@ void CGrid::initFHRTextElement()
     QVector<QColor> vector6;
     vector6.append(QColor(0xff,0xf3,0xbf));
     vector6.append(QColor(224,224,224));
-    addFHRTextElement(290,"240",vector);
-    addFHRTextElement(270,"220",vector);
     addFHRTextElement(250,"200",vector);
     addFHRTextElement(230,"180",vector);
     addFHRTextElement(210,"160",vector2);
     addFHRTextElement(190,"140",vector3);
     addFHRTextElement(170,"120",vector3);
     addFHRTextElement(150,"100",vector5);
-    addFHRTextElement(130," 80",vector5);
-    addFHRTextElement(110," 60",vector5);
-    addFHRTextElement(100," HR",vector6);
+    addFHRTextElement(130,"80",vector5);
+    addFHRTextElement(110,"60",vector5);
+    addFHRTextElement(100,"HR",vector6);
 }
 
 void CGrid::initTOCOTextElement()
@@ -61,11 +59,11 @@ void CGrid::initTOCOTextElement()
     addTOCOTextElement(100,"100",vector);
     QVector<QColor> vector2;
     vector2.append(QColor(224,224,224));
-    addTOCOTextElement(80," 80",vector2);
-    addTOCOTextElement(60," 60",vector2);
-    addTOCOTextElement(40," 40",vector2);
-    addTOCOTextElement(20," 20",vector2);
-    addTOCOTextElement(0," UA",vector2);
+    addTOCOTextElement(80,"80",vector2);
+    addTOCOTextElement(60,"60",vector2);
+    addTOCOTextElement(40,"40",vector2);
+    addTOCOTextElement(20,"20",vector2);
+    addTOCOTextElement(0, "UA",vector2);
 }
 
 
@@ -193,6 +191,11 @@ void CGrid::parseFHRTextElement(const QVector<double> &xTickVector, const QVecto
     double key;
     QString value;
     QVector<QColor>colors;
+    QFont font;
+    font.setBold(true);
+    font.setPixelSize(15);
+    font.setWordSpacing(2);
+    painter->setFont(font);
     for(int i=0;i<xTickVector.length();i++)
     {
         if(((int)xTickVector[i]>=0)&&((int)xTickVector[i]%(240*10)==0))
@@ -215,6 +218,10 @@ void CGrid::parseFHRTextElement(const QVector<double> &xTickVector, const QVecto
                     painter->setPen(pen);
                     painter->drawRect(QRect(QPoint(xPos-10,yPos-10),QPoint(xPos+10,yPos+10)));
                     QPen pen2(QColor(200,200,200), 0, Qt::SolidLine);
+                    QFont font;
+                    //font.setBold(true);
+//                    font.setPixelSize(13);
+//                    painter->setFont(font);
                     painter->setPen(pen2);
                     painter->drawText(xPos-10,yPos+5,value);
                 }
@@ -227,6 +234,10 @@ void CGrid::parseFHRTextElement(const QVector<double> &xTickVector, const QVecto
                     painter->setBrush(colors[1]);
                     painter->drawRect(QRect(QPoint(xPos-10,yPos),QPoint(xPos+10,yPos+10)));
                     QPen pen2(QColor(200,200,200), 0, Qt::SolidLine);
+                    QFont font;
+                    //font.setBold(true);
+//                    font.setPixelSize(13);
+//                    painter->setFont(font);
                     painter->setPen(pen2);
                     painter->drawText(xPos-10,yPos+5,value);
                 }

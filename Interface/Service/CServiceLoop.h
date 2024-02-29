@@ -22,15 +22,17 @@ public:
     CServiceLoop(QObject* parent = nullptr);
     ~CServiceLoop();
     void initModule();
+    void exitMoudle();
     void startRunning();
     void stopRunning();
+    void initService();
     void run();
     void addService(const QString& serviceName,IService* service);
     bool containService(const QString& serviceName);
     void requestService(const QSharedPointer<CDataStreamBase> pack);
 signals:
     //void signal_SendResponse(const CDataStreamWrapped pack);
-    void signal_SendResponse(const QSharedPointer<CDataStreamBase> responsePack);
+    void signalSendResponse(const QString funcName,const QSharedPointer<CDataStreamBase> responsePack);
 };
 
 #endif // CSERVICELOOP_H

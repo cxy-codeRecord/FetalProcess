@@ -1,71 +1,59 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CWidgetViewManage.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.12)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../../Interface/WidgetView/CWidgetViewManage.h"
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QSharedPointer>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CWidgetViewManage.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.4.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.12.12. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
-#endif
-
-#ifndef Q_CONSTINIT
-#define Q_CONSTINIT
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-namespace {
 struct qt_meta_stringdata_CWidgetViewManage_t {
-    uint offsetsAndSizes[16];
-    char stringdata0[18];
-    char stringdata1[22];
-    char stringdata2[1];
-    char stringdata3[32];
-    char stringdata4[5];
-    char stringdata5[20];
-    char stringdata6[18];
-    char stringdata7[13];
+    QByteArrayData data[9];
+    char stringdata0[133];
 };
-#define QT_MOC_LITERAL(ofs, len) \
-    uint(sizeof(qt_meta_stringdata_CWidgetViewManage_t::offsetsAndSizes) + ofs), len 
-Q_CONSTINIT static const qt_meta_stringdata_CWidgetViewManage_t qt_meta_stringdata_CWidgetViewManage = {
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_CWidgetViewManage_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_CWidgetViewManage_t qt_meta_stringdata_CWidgetViewManage = {
     {
-        QT_MOC_LITERAL(0, 17),  // "CWidgetViewManage"
-        QT_MOC_LITERAL(18, 21),  // "signal_RequestService"
-        QT_MOC_LITERAL(40, 0),  // ""
-        QT_MOC_LITERAL(41, 31),  // "QSharedPointer<CDataStreamBase>"
-        QT_MOC_LITERAL(73, 4),  // "pack"
-        QT_MOC_LITERAL(78, 19),  // "signal_RecvResponse"
-        QT_MOC_LITERAL(98, 17),  // "slot_RecvResponse"
-        QT_MOC_LITERAL(116, 12)   // "responsePack"
+QT_MOC_LITERAL(0, 0, 17), // "CWidgetViewManage"
+QT_MOC_LITERAL(1, 18, 20), // "signalRequestService"
+QT_MOC_LITERAL(2, 39, 0), // ""
+QT_MOC_LITERAL(3, 40, 31), // "QSharedPointer<CDataStreamBase>"
+QT_MOC_LITERAL(4, 72, 4), // "pack"
+QT_MOC_LITERAL(5, 77, 18), // "signalRecvResponse"
+QT_MOC_LITERAL(6, 96, 14), // "onRecvResponse"
+QT_MOC_LITERAL(7, 111, 8), // "funcName"
+QT_MOC_LITERAL(8, 120, 12) // "responsePack"
+
     },
-    "CWidgetViewManage",
-    "signal_RequestService",
-    "",
-    "QSharedPointer<CDataStreamBase>",
-    "pack",
-    "signal_RecvResponse",
-    "slot_RecvResponse",
-    "responsePack"
+    "CWidgetViewManage\0signalRequestService\0"
+    "\0QSharedPointer<CDataStreamBase>\0pack\0"
+    "signalRecvResponse\0onRecvResponse\0"
+    "funcName\0responsePack"
 };
 #undef QT_MOC_LITERAL
-} // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CWidgetViewManage[] = {
+static const uint qt_meta_data_CWidgetViewManage[] = {
 
  // content:
-      10,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        3,   14, // methods
@@ -75,74 +63,62 @@ Q_CONSTINIT static const uint qt_meta_data_CWidgetViewManage[] = {
        0,       // flags
        2,       // signalCount
 
- // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   32,    2, 0x06,    1 /* Public */,
-       5,    1,   35,    2, 0x06,    3 /* Public */,
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   29,    2, 0x06 /* Public */,
+       5,    1,   32,    2, 0x06 /* Public */,
 
- // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    1,   38,    2, 0x0a,    5 /* Public */,
+ // slots: name, argc, parameters, tag, flags
+       6,    2,   35,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3,    7,
+    QMetaType::Void, QMetaType::QString, 0x80000000 | 3,    7,    8,
 
        0        // eod
 };
-
-Q_CONSTINIT const QMetaObject CWidgetViewManage::staticMetaObject = { {
-    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
-    qt_meta_stringdata_CWidgetViewManage.offsetsAndSizes,
-    qt_meta_data_CWidgetViewManage,
-    qt_static_metacall,
-    nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CWidgetViewManage_t,
-        // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<CWidgetViewManage, std::true_type>,
-        // method 'signal_RequestService'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QSharedPointer<CDataStreamBase> &, std::false_type>,
-        // method 'signal_RecvResponse'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QSharedPointer<CDataStreamBase>, std::false_type>,
-        // method 'slot_RecvResponse'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QSharedPointer<CDataStreamBase>, std::false_type>
-    >,
-    nullptr
-} };
 
 void CWidgetViewManage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<CWidgetViewManage *>(_o);
-        (void)_t;
+        Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->signal_RequestService((*reinterpret_cast< std::add_pointer_t<QSharedPointer<CDataStreamBase>>>(_a[1]))); break;
-        case 1: _t->signal_RecvResponse((*reinterpret_cast< std::add_pointer_t<QSharedPointer<CDataStreamBase>>>(_a[1]))); break;
-        case 2: _t->slot_RecvResponse((*reinterpret_cast< std::add_pointer_t<QSharedPointer<CDataStreamBase>>>(_a[1]))); break;
+        case 0: _t->signalRequestService((*reinterpret_cast< const QSharedPointer<CDataStreamBase>(*)>(_a[1]))); break;
+        case 1: _t->signalRecvResponse((*reinterpret_cast< const QSharedPointer<CDataStreamBase>(*)>(_a[1]))); break;
+        case 2: _t->onRecvResponse((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QSharedPointer<CDataStreamBase>(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (CWidgetViewManage::*)(const QSharedPointer<CDataStreamBase> & );
-            if (_t _q_method = &CWidgetViewManage::signal_RequestService; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CWidgetViewManage::signalRequestService)) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (CWidgetViewManage::*)(const QSharedPointer<CDataStreamBase> );
-            if (_t _q_method = &CWidgetViewManage::signal_RecvResponse; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CWidgetViewManage::signalRecvResponse)) {
                 *result = 1;
                 return;
             }
         }
     }
 }
+
+QT_INIT_METAOBJECT const QMetaObject CWidgetViewManage::staticMetaObject = { {
+    &QObject::staticMetaObject,
+    qt_meta_stringdata_CWidgetViewManage.data,
+    qt_meta_data_CWidgetViewManage,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
 
 const QMetaObject *CWidgetViewManage::metaObject() const
 {
@@ -168,23 +144,23 @@ int CWidgetViewManage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 3)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+            *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 3;
     }
     return _id;
 }
 
 // SIGNAL 0
-void CWidgetViewManage::signal_RequestService(const QSharedPointer<CDataStreamBase> & _t1)
+void CWidgetViewManage::signalRequestService(const QSharedPointer<CDataStreamBase> & _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void CWidgetViewManage::signal_RecvResponse(const QSharedPointer<CDataStreamBase> _t1)
+void CWidgetViewManage::signalRecvResponse(const QSharedPointer<CDataStreamBase> _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP

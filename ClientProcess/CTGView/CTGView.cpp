@@ -8,7 +8,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
-#include "../Common/MyCommon.h"
+//#include "../Common/MyCommon.h"
+#include "../../Common/View/ViewCommon.h"
 CTGView::CTGView(QWidget *parent) : CWidgetView(CTGVIEW_NAME,parent)
 {
     init();
@@ -87,11 +88,26 @@ void CTGView::initGraph()
     m_FHR3Graph = m_CustomPlot->addGraph();
     m_FMGraph = m_CustomPlot->addGraph();
     m_TOCOGraph = m_CustomPlot->addGraph();
-    m_FHR1Graph->setPen(m_FHR1LineColor);
-    m_FHR2Graph->setPen(m_FHR2LineColor);
-    m_FHR3Graph->setPen(m_FHR3LineColor);
-    m_FMGraph->setPen(m_MHRLineColor);
-    m_TOCOGraph->setPen(m_TOCOLineColor);
+    QPen fhr1Pen;
+    QPen fhr2Pen;
+    QPen fhr3Pen;
+    QPen mhrPen;
+    QPen tocoPen;
+    fhr1Pen.setBrush(QBrush(m_FHR1LineColor));
+    fhr2Pen.setBrush(QBrush(m_FHR2LineColor));
+    fhr3Pen.setBrush(QBrush(m_FHR3LineColor));
+    mhrPen.setBrush(QBrush(m_MHRLineColor));
+    tocoPen.setBrush(QBrush(m_TOCOLineColor));
+    fhr1Pen.setWidth(1);
+    fhr2Pen.setWidth(1);
+    fhr3Pen.setWidth(1);
+    mhrPen.setWidth(1);
+    tocoPen.setWidth(1);
+    m_FHR1Graph->setPen(fhr1Pen);
+    m_FHR2Graph->setPen(fhr2Pen);
+    m_FHR3Graph->setPen(fhr3Pen);
+    m_FMGraph->setPen(mhrPen);
+    m_TOCOGraph->setPen(tocoPen);
 }
 
 void CTGView::initTimer()
@@ -122,7 +138,7 @@ void CTGView::initSlot()
 //    connect(m_CustomPlot, &QCustomPlot::afterReplot, this, &CTGView::updateQuickCustomPlotUI);//很重要，少了这个信号槽，qml的chart界面无法刷新
     connect(&m_timer,&QTimer::timeout,this,&CTGView::timeoutHandle);
     connect(m_CustomPlot,&QCustomPlot::mouseWheel,this,&CTGView::mouseWheel);
-    connect(this,&CTGView::signal_printerUnitState,m_Grid,&CGrid::handlePrinterUnitState);
+    connect(this,&CTGView::signalPrinterUnitState,m_Grid,&CGrid::handlePrinterUnitState);
 }
 
 void CTGView::initXAxis1Tick()
@@ -173,7 +189,26 @@ void CTGView::initZoomStateYRange()
 
 void CTGView::initModule()
 {
+    registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(SERVICE_FUNC_GET_FETAL_HEART_DATA),bind(&CTGView::getFetalHeartDataRecvHandle,this,std::placeholders::_1));
+}
 
+void CTGView::getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase> data)
+{
+    CDataStream<CFetalHeartData>* ptr = data->toDataStream<CDataStream<CFetalHeartData>>();
+    static int dataIndex = 0;
+    if(ptr)
+    {
+        int heartOne = ptr->data.fetalHeartOne;
+        int heartTwo = ptr->data.fetalHeartTwo;
+        int heartThree = ptr->data.fetalHeartThree;
+        m_FHR1Graph->addData(dataIndex,double(heartOne));
+        m_FHR2Graph->addData(dataIndex,double(heartTwo));
+        m_FHR3Graph->addData(dataIndex,double(heartThree));
+//        qDebug()<<"heartOne:"<<heartOne;
+//        qDebug()<<"heartTwo:"<<heartTwo;
+//        qDebug()<<"heartThree:"<<heartThree;
+    }
+    dataIndex++;
 }
 
 
@@ -199,64 +234,6 @@ double CTGView::calculate3CM()
     return ret;
 }
 
-//void CQuickCustomPlot::hoverMoveEvent(QHoverEvent */*event*/)
-//{
-
-//}
-
-//void CQuickCustomPlot::mousePressEvent(QMouseEvent *event)
-//{
-//    routeMouseEvents(event);
-//}
-
-//void CQuickCustomPlot::mouseReleaseEvent(QMouseEvent *event)
-//{
-//    routeMouseEvents(event);
-//}
-
-//void CQuickCustomPlot::mouseMoveEvent(QMouseEvent *event)
-//{
-//    routeMouseEvents(event);
-//}
-
-//void CQuickCustomPlot::mouseDoubleClickEvent(QMouseEvent *event)
-//{
-//    routeMouseEvents(event);
-//}
-
-//void CQuickCustomPlot::wheelEvent(QWheelEvent *event)
-//{
-//    routeWheelEvents( event );
-//}
-
-//void CQuickCustomPlot::routeMouseEvents(QMouseEvent *event)
-//{
-//    QMouseEvent* newEvent = new QMouseEvent(event->type(), event->localPos(), event->button(), event->buttons(), event->modifiers());
-//    QCoreApplication::postEvent(m_CustomPlot, newEvent);
-//}
-
-//void CQuickCustomPlot::routeWheelEvents(QWheelEvent *event)
-//{
-//    QWheelEvent* newEvent = new QWheelEvent(event->position(),event->globalPosition(), event->pixelDelta(),event->angleDelta(), event->buttons(), event->modifiers(),event->phase(),event->inverted());
-//    QCoreApplication::postEvent(m_CustomPlot, newEvent);
-//}
-
-//void CQuickCustomPlot::paint(QPainter *painter)
-//{
-//    /// add active check
-//    if (!painter->isActive())
-//        return;
-//    QPixmap    picture(boundingRect().size().toSize() );
-//    QCPPainter qcpPainter(&picture);
-//    m_CustomPlot->toPainter(&qcpPainter);
-//    painter->drawPixmap(QPoint(), picture);
-//}
-
-//void CQuickCustomPlot::updateChartViewSize()
-//{
-//    m_CustomPlot->setGeometry(0, 0, (int)width(), (int)height());
-//    m_CustomPlot->setViewport(QRect(0, 0, (int)width(), (int)height()));
-//}
 
 void CTGView::updateQuickCustomPlotUI()
 {
@@ -331,7 +308,7 @@ void CTGView::mouseMove(QMouseEvent *e)
 
 void CTGView::handlePrinterUnitState(int state)
 {
-    emit signal_printerUnitState(state);
+    emit signalPrinterUnitState(state);
     CTGState::PRINTER_UNIT_STATE printerUnitState = (CTGState::PRINTER_UNIT_STATE)state;
     initXAxis2Tick();
     QCPRange range = m_CustomPlot->xAxis->range();

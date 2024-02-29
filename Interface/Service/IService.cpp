@@ -19,6 +19,11 @@ IService::IService(const QString& serviceName,const SERVICE_THREAD_ID& threadId,
 
 }
 
+IService::~IService()
+{
+
+}
+
 void IService::registerServiceHandleFunc(const QString&& funcName, function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)>func)
 {
     m_mapServiceHandleFunc[funcName] = func;

@@ -6,7 +6,8 @@
 
 QT       += core gui printsupport
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets \
+                                        network
 
 TARGET = ClientProcess
 TEMPLATE = app
@@ -25,6 +26,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ../Common/Net/CNetMessage.cpp \
+        ../Common/Net/CSockBuffer.cpp \
+        ../Common/Net/CSockDataHandle.cpp \
+        ../Common/Net/ClientSockDataHandle.cpp \
+        ../Common/Net/ControlSockDataHandle.cpp \
         ../CustomControls/CButton.cpp \
         ../CustomControls/CPageButton.cpp \
         ../Interface/Controller/CController.cpp \
@@ -32,6 +38,7 @@ SOURCES += \
         ../Interface/Service/CService.cpp \
         ../Interface/Service/CServiceLoop.cpp \
         ../Interface/Service/CServiceManage.cpp \
+        ../Interface/Service/CTimerServiceHandle.cpp \
         ../Interface/Service/IService.cpp \
         ../Interface/WidgetView/CWidgetView.cpp \
         ../Interface/WidgetView/CWidgetViewManage.cpp \
@@ -46,12 +53,23 @@ SOURCES += \
         ClientBar/CDigitalBar/CDigitalBar.cpp \
         ClientBar/CMenuBar/CMenuBar.cpp \
         ClientBar/CStatusBar/CStatusBar.cpp \
+        CService/CNetService/CNetService.cpp\
+        CService/CServiceGenerate/CServiceGenerate.cpp \
         form.cpp \
         main.cpp
 
 HEADERS += \
         ../Common/CDataStructs.h \
+        ../Common/Net/CNetCommon.h \
+        ../Common/Net/CNetDataStructs.h \
+        ../Common/Net/CNetMessage.h \
+        ../Common/Net/CSockBuffer.h \
+        ../Common/Net/CSockDataHandle.h \
         ../Common/MyCommon.h \
+        ../Common/Net/ClientSockDataHandle.h \
+        ../Common/Net/ControlSockDataHandle.h \
+        ../Common/Service/ServiceCommon.h \
+        ../Common/View/ViewCommon.h \
         ../CustomControls/CButton.h \
         ../CustomControls/CPageButton.h \
         ../Interface/Controller/CController.h \
@@ -59,11 +77,13 @@ HEADERS += \
         ../Interface/Service/CService.h \
         ../Interface/Service/CServiceLoop.h \
         ../Interface/Service/CServiceManage.h \
+        ../Interface/Service/CTimerServiceHandle.h \
         ../Interface/Service/IService.h \
         ../Interface/WidgetView/CWidgetView.h \
         ../Interface/WidgetView/CWidgetViewManage.h \
         ../Interface/WidgetView/IWidgetView.h \
         CMainView/CMainView.h \
+        CService/CNetService/CNetService.h \
         CTGView/CBackGround.h \
         CTGView/CCPAxisTickerTimer.h \
         CTGView/CGrid.h \
@@ -73,6 +93,7 @@ HEADERS += \
         ClientBar/CDigitalBar/CDigitalBar.h \
         ClientBar/CMenuBar/CMenuBar.h \
         ClientBar/CStatusBar/CStatusBar.h \
+        CService/CServiceGenerate/CServiceGenerate.h \
         form.h
 
 FORMS += \

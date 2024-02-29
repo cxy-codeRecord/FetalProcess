@@ -89,16 +89,10 @@ protected:\
 #define DEF_SERVICE_NAME(x) #x
 #define DEF_RECV_RESPONSE_FUNC_NAME(x) #x RECVHANDLE_FUNC_SUFFIX
 #define DEF_VIEW_NAME(x) #x
+#define CMAINWIN_WIDTH  1680
+#define CMAINWIN_HEIGHT 1080
 
 
-#define CMAINWIN_WIDTH 1280
-#define CMAINWIN_HEIGHT 768
 
 
-
-#define CTGVIEW_NAME "CTGView"
-#define CDIGITALBAR_NAME "CDigitalView"
-#define CMENUBAR_NAME "CMenuBar"
-#define CSTATUSBAR_NAME "CStatusBar"
-#define CMAINVIEW_NAME "CMainView"
 #endif // MYCOMMON_H

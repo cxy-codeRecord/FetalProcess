@@ -21,4 +21,9 @@
         <file>DigitalBar/FECGHeart3.png</file>
         <file>DigitalBar/FECGHeart4.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>font/SourceHanSansCN-Heavy.otf</file>
+        <file>font/SourceHanSansCN-Medium.otf</file>
+        <file>font/SourceHanSansCN-Regular.otf</file>
+    </qresource>
 </RCC>

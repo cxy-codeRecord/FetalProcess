@@ -8,22 +8,22 @@ CWidgetViewManage::CWidgetViewManage(QObject *parent) : QObject(parent)
 void CWidgetViewManage::registerWidgetView(IWidgetView* view)
 {
     QString viewName = view->getViewName();
-    m_mapWidgetView[viewName] = const_cast<IWidgetView*>(view);
-    connect(view,&IWidgetView::signal_RequestService,this,&CWidgetViewManage::signal_RequestService);
+    m_vectorWidgetView.push_back(view);
+    connect(view,&IWidgetView::signalRequestService,this,&CWidgetViewManage::signalRequestService);
 }
 
-void CWidgetViewManage::slot_RecvResponse(const QSharedPointer<CDataStreamBase> responsePack)
+void CWidgetViewManage::onRecvResponse(const QString funcName, const QSharedPointer<CDataStreamBase> responsePack)
 {
-    const QString& viewName = responsePack->viewName;
-    if(m_mapWidgetView.contains(viewName))
+    auto it = m_vectorWidgetView.begin();
+    while(it!= m_vectorWidgetView.end())
     {
-       IWidgetView* view = m_mapWidgetView[viewName];
-       function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)>func;
-       bool ret = view->getRecvResponseHandle(responsePack->handleFuncName,func);
-       if(ret)
-       {
-           func(responsePack);
-       }
+        function<void(QSharedPointer<CDataStreamBase>)>func;
+        bool ret = (*it)->getRecvResponseHandle(funcName,func);
+        if(ret)
+        {
+            func(responsePack);
+        }
+        it++;
     }
 }
 

@@ -1,8 +1,11 @@
-#include <QCoreApplication>
-
+#include <QApplication>
+#include "ControlProcess.h"
+#include <QProcess>
+#include "ControlProcessView.h"
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
+    QApplication a(argc, argv);
+    ControlProcessView view;
+    view.show();
     return a.exec();
 }

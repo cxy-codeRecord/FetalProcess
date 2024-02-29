@@ -10,4 +10,3 @@
 #define _DEBUG 
 #define _MT 
 #define _DLL 
-#define _UTF8 

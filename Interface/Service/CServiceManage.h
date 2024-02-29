@@ -10,8 +10,10 @@
 #include <atomic>
 #include "../Common/CDataStructs.h"
 #include "../Common/MyCommon.h"
+#include "../Common/Service/ServiceCommon.h"
 #include "CServiceLoop.h"
 #include <QList>
+#include "CTimerServiceHandle.h"
 using namespace std;
 class CServiceManage : public QObject
 {
@@ -25,19 +27,20 @@ protected:
     condition_variable m_condition;
     QMap<SERVICE_THREAD_ID,CServiceLoop*>m_mapServiceLoop;
     QMap<QString,QMap<QString,QList<function<QVariant(QVariant)>>>>m_mapRecvResponseHandle;
+    CTimerServiceHandle m_CTimerServiceHandle;
 protected:
-    //void run();
-    void initServiceLoop();
     void freeServiceLoop();
 public:
+    void initServiceLoop();
     void registerService(IService* service,SERVICE_THREAD_ID serviceThreadId = SERVICE_THREAD_ID::ServiceThread0);
     void initModule();
+    void initServiceModule();
     ~CServiceManage();
+    void startTimerHanle(int ms,QSharedPointer<CDataStreamBase> base);
 public slots:
-    void slot_RequestService(const QSharedPointer<CDataStreamBase>& pack);
+    void onRequestService(QSharedPointer<CDataStreamBase> pack);
 signals:
-//    void signal_SendResponse(const CDataStreamWrapped pack);
-    void signal_SendResponse(const QSharedPointer<CDataStreamBase> responsePack);
+    void signalSendResponse(const QString funcName,const QSharedPointer<CDataStreamBase> responsePack);
 };
 
 #endif // CSERVICEMANAGE_H

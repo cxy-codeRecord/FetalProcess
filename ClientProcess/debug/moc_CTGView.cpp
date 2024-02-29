@@ -1,99 +1,68 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CTGView.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.12)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../CTGView/CTGView.h"
-#include <QtGui/qtextcursor.h>
-#include <QScreen>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'CTGView.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.4.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.12.12. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
-#endif
-
-#ifndef Q_CONSTINIT
-#define Q_CONSTINIT
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-namespace {
 struct qt_meta_stringdata_CTGView_t {
-    uint offsetsAndSizes[34];
-    char stringdata0[8];
-    char stringdata1[24];
-    char stringdata2[1];
-    char stringdata3[6];
-    char stringdata4[14];
-    char stringdata5[24];
-    char stringdata6[19];
-    char stringdata7[9];
-    char stringdata8[9];
-    char stringdata9[9];
-    char stringdata10[19];
-    char stringdata11[11];
-    char stringdata12[13];
-    char stringdata13[2];
-    char stringdata14[10];
-    char stringdata15[13];
-    char stringdata16[23];
+    QByteArrayData data[17];
+    char stringdata0[213];
 };
-#define QT_MOC_LITERAL(ofs, len) \
-    uint(sizeof(qt_meta_stringdata_CTGView_t::offsetsAndSizes) + ofs), len 
-Q_CONSTINIT static const qt_meta_stringdata_CTGView_t qt_meta_stringdata_CTGView = {
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_CTGView_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_CTGView_t qt_meta_stringdata_CTGView = {
     {
-        QT_MOC_LITERAL(0, 7),  // "CTGView"
-        QT_MOC_LITERAL(8, 23),  // "signal_printerUnitState"
-        QT_MOC_LITERAL(32, 0),  // ""
-        QT_MOC_LITERAL(33, 5),  // "state"
-        QT_MOC_LITERAL(39, 13),  // "timeoutHandle"
-        QT_MOC_LITERAL(53, 23),  // "updateQuickCustomPlotUI"
-        QT_MOC_LITERAL(77, 18),  // "limitXRangeChanged"
-        QT_MOC_LITERAL(96, 8),  // "QCPRange"
-        QT_MOC_LITERAL(105, 8),  // "newRange"
-        QT_MOC_LITERAL(114, 8),  // "oldRange"
-        QT_MOC_LITERAL(123, 18),  // "limitYRangeChanged"
-        QT_MOC_LITERAL(142, 10),  // "mouseWheel"
-        QT_MOC_LITERAL(153, 12),  // "QWheelEvent*"
-        QT_MOC_LITERAL(166, 1),  // "e"
-        QT_MOC_LITERAL(168, 9),  // "mouseMove"
-        QT_MOC_LITERAL(178, 12),  // "QMouseEvent*"
-        QT_MOC_LITERAL(191, 22)   // "handlePrinterUnitState"
+QT_MOC_LITERAL(0, 0, 7), // "CTGView"
+QT_MOC_LITERAL(1, 8, 22), // "signalPrinterUnitState"
+QT_MOC_LITERAL(2, 31, 0), // ""
+QT_MOC_LITERAL(3, 32, 5), // "state"
+QT_MOC_LITERAL(4, 38, 13), // "timeoutHandle"
+QT_MOC_LITERAL(5, 52, 23), // "updateQuickCustomPlotUI"
+QT_MOC_LITERAL(6, 76, 18), // "limitXRangeChanged"
+QT_MOC_LITERAL(7, 95, 8), // "QCPRange"
+QT_MOC_LITERAL(8, 104, 8), // "newRange"
+QT_MOC_LITERAL(9, 113, 8), // "oldRange"
+QT_MOC_LITERAL(10, 122, 18), // "limitYRangeChanged"
+QT_MOC_LITERAL(11, 141, 10), // "mouseWheel"
+QT_MOC_LITERAL(12, 152, 12), // "QWheelEvent*"
+QT_MOC_LITERAL(13, 165, 1), // "e"
+QT_MOC_LITERAL(14, 167, 9), // "mouseMove"
+QT_MOC_LITERAL(15, 177, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(16, 190, 22) // "handlePrinterUnitState"
+
     },
-    "CTGView",
-    "signal_printerUnitState",
-    "",
-    "state",
-    "timeoutHandle",
-    "updateQuickCustomPlotUI",
-    "limitXRangeChanged",
-    "QCPRange",
-    "newRange",
-    "oldRange",
-    "limitYRangeChanged",
-    "mouseWheel",
-    "QWheelEvent*",
-    "e",
-    "mouseMove",
-    "QMouseEvent*",
+    "CTGView\0signalPrinterUnitState\0\0state\0"
+    "timeoutHandle\0updateQuickCustomPlotUI\0"
+    "limitXRangeChanged\0QCPRange\0newRange\0"
+    "oldRange\0limitYRangeChanged\0mouseWheel\0"
+    "QWheelEvent*\0e\0mouseMove\0QMouseEvent*\0"
     "handlePrinterUnitState"
 };
 #undef QT_MOC_LITERAL
-} // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CTGView[] = {
+static const uint qt_meta_data_CTGView[] = {
 
  // content:
-      10,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        8,   14, // methods
@@ -103,19 +72,19 @@ Q_CONSTINIT static const uint qt_meta_data_CTGView[] = {
        0,       // flags
        1,       // signalCount
 
- // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   62,    2, 0x06,    1 /* Public */,
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   54,    2, 0x06 /* Public */,
 
- // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   65,    2, 0x0a,    3 /* Public */,
-       5,    0,   66,    2, 0x0a,    4 /* Public */,
-       6,    2,   67,    2, 0x0a,    5 /* Public */,
-      10,    2,   72,    2, 0x0a,    8 /* Public */,
-      11,    1,   77,    2, 0x0a,   11 /* Public */,
-      14,    1,   80,    2, 0x0a,   13 /* Public */,
+ // slots: name, argc, parameters, tag, flags
+       4,    0,   57,    2, 0x0a /* Public */,
+       5,    0,   58,    2, 0x0a /* Public */,
+       6,    2,   59,    2, 0x0a /* Public */,
+      10,    2,   64,    2, 0x0a /* Public */,
+      11,    1,   69,    2, 0x0a /* Public */,
+      14,    1,   72,    2, 0x0a /* Public */,
 
- // methods: name, argc, parameters, tag, flags, initial metatype offsets
-      16,    1,   83,    2, 0x02,   15 /* Public */,
+ // methods: name, argc, parameters, tag, flags
+      16,    1,   75,    2, 0x02 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -134,70 +103,43 @@ Q_CONSTINIT static const uint qt_meta_data_CTGView[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject CTGView::staticMetaObject = { {
-    QMetaObject::SuperData::link<CWidgetView::staticMetaObject>(),
-    qt_meta_stringdata_CTGView.offsetsAndSizes,
-    qt_meta_data_CTGView,
-    qt_static_metacall,
-    nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CTGView_t,
-        // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<CTGView, std::true_type>,
-        // method 'signal_printerUnitState'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'timeoutHandle'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'updateQuickCustomPlotUI'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'limitXRangeChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QCPRange &, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QCPRange &, std::false_type>,
-        // method 'limitYRangeChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QCPRange &, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QCPRange &, std::false_type>,
-        // method 'mouseWheel'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QWheelEvent *, std::false_type>,
-        // method 'mouseMove'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>,
-        // method 'handlePrinterUnitState'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
-    >,
-    nullptr
-} };
-
 void CTGView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<CTGView *>(_o);
-        (void)_t;
+        Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->signal_printerUnitState((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 0: _t->signalPrinterUnitState((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 1: _t->timeoutHandle(); break;
         case 2: _t->updateQuickCustomPlotUI(); break;
-        case 3: _t->limitXRangeChanged((*reinterpret_cast< std::add_pointer_t<QCPRange>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QCPRange>>(_a[2]))); break;
-        case 4: _t->limitYRangeChanged((*reinterpret_cast< std::add_pointer_t<QCPRange>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QCPRange>>(_a[2]))); break;
-        case 5: _t->mouseWheel((*reinterpret_cast< std::add_pointer_t<QWheelEvent*>>(_a[1]))); break;
-        case 6: _t->mouseMove((*reinterpret_cast< std::add_pointer_t<QMouseEvent*>>(_a[1]))); break;
-        case 7: _t->handlePrinterUnitState((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->limitXRangeChanged((*reinterpret_cast< const QCPRange(*)>(_a[1])),(*reinterpret_cast< const QCPRange(*)>(_a[2]))); break;
+        case 4: _t->limitYRangeChanged((*reinterpret_cast< const QCPRange(*)>(_a[1])),(*reinterpret_cast< const QCPRange(*)>(_a[2]))); break;
+        case 5: _t->mouseWheel((*reinterpret_cast< QWheelEvent*(*)>(_a[1]))); break;
+        case 6: _t->mouseMove((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        case 7: _t->handlePrinterUnitState((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (CTGView::*)(int );
-            if (_t _q_method = &CTGView::signal_printerUnitState; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&CTGView::signalPrinterUnitState)) {
                 *result = 0;
                 return;
             }
         }
     }
 }
+
+QT_INIT_METAOBJECT const QMetaObject CTGView::staticMetaObject = { {
+    &CWidgetView::staticMetaObject,
+    qt_meta_stringdata_CTGView.data,
+    qt_meta_data_CTGView,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
 
 const QMetaObject *CTGView::metaObject() const
 {
@@ -223,16 +165,16 @@ int CTGView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 8)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+            *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 8;
     }
     return _id;
 }
 
 // SIGNAL 0
-void CTGView::signal_printerUnitState(int _t1)
+void CTGView::signalPrinterUnitState(int _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

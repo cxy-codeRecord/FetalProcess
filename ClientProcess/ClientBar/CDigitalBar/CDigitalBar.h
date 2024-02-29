@@ -7,6 +7,8 @@ class CDigitalBar : public CWidgetView
 public:
     CDigitalBar(QWidget* parent=nullptr);
     void initModule();
+protected:
+    void startRecordRecvHandle(QSharedPointer<CDataStreamBase> data);
 };
 
 #endif // CDIGITALBAR_H

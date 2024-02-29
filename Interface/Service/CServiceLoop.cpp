@@ -13,6 +13,14 @@ void CServiceLoop::initModule()
     startRunning();
 }
 
+void CServiceLoop::exitMoudle()
+{
+    stopRunning();
+    wait();
+    quit();
+    deleteLater();
+}
+
 void CServiceLoop::startRunning()
 {
     m_Running = true;
@@ -22,6 +30,19 @@ void CServiceLoop::startRunning()
 void CServiceLoop::stopRunning()
 {
     m_Running = false;
+    m_condition.notify_all();
+
+}
+
+void CServiceLoop::initService()
+{
+    unique_lock<mutex> lock(m_mutex);
+    auto it = m_mapService.begin();
+    while(it!=m_mapService.end())
+    {
+        it.value()->initModule();
+        it++;
+    }
 }
 
 void CServiceLoop::run()
@@ -29,7 +50,9 @@ void CServiceLoop::run()
     while(m_Running)
     {
         unique_lock<mutex> lock(m_mutex);
-        m_condition.wait(lock,[this]{return (m_ServicePacks.length()>0);});
+        m_condition.wait(lock,[this]{
+            return ((m_ServicePacks.length()>0)||(!m_Running));
+        });
         if(m_ServicePacks.length()>0)
         {
            QSharedPointer<CDataStreamBase> requestPack =  m_ServicePacks.head();
@@ -37,7 +60,6 @@ void CServiceLoop::run()
            lock.unlock();
            QString&  serviceName = requestPack->serviceName;
            QString&  serviceFuncName = requestPack->handleFuncName;
-           QString&  viewName = requestPack->viewName;
            IService* service = m_mapService[serviceName];
            function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)>handleFunc = nullptr;
            if(m_mapService.contains(serviceName))
@@ -51,12 +73,19 @@ void CServiceLoop::run()
            if(handleFunc)
            {
              QSharedPointer<CDataStreamBase> responsePack = handleFunc(requestPack);
-             responsePack->viewName = viewName;
-             responsePack->handleFuncName = serviceFuncName + RECVHANDLE_FUNC_SUFFIX;
-             emit signal_SendResponse(responsePack);
+             emit signalSendResponse(serviceFuncName + RECVHANDLE_FUNC_SUFFIX,responsePack);
            }
         }
     }
+    unique_lock<mutex> lock(m_mutex);
+    auto it = m_mapService.begin();
+    while(it!=m_mapService.end())
+    {
+        it.value()->exitModule();
+        delete(it.value());
+        it++;
+    }
+
 }
 
 void CServiceLoop::addService(const QString &serviceName, IService *service)

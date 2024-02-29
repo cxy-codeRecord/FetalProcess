@@ -9,9 +9,27 @@ CController::CController(QObject *parent):IController(parent),
 
 void CController::initModule()
 {
-    m_pServiceManage->initModule();
-    m_pWidgetViewManage->initModule();
+    initServiceManage();
+    initWidgetViewManage();
     initSlot();
+}
+
+void CController::initServiceManage()
+{
+    m_pServiceManage->initServiceLoop();
+    CServiceGenerator::getInstance()->initModule();
+}
+
+void CController::initWidgetViewManage()
+{
+    Form::getInstance()->initModule();
+    m_pWidgetViewManage->initModule();
+    Form::getInstance()->show();
+}
+
+void CController::initServiceGenerator()
+{
+    m_pServiceManage->initServiceModule();
 }
 
 
@@ -25,10 +43,15 @@ void CController::registerView(IWidgetView *widgetView)
     m_pWidgetViewManage->registerWidgetView(widgetView);
 }
 
+void CController::startTimerHandle(int ms, QSharedPointer<CDataStreamBase> base)
+{
+    m_pServiceManage->startTimerHanle(ms,base);
+}
+
 void CController::initSlot()
 {
-    connect(m_pWidgetViewManage,&CWidgetViewManage::signal_RequestService,m_pServiceManage,&CServiceManage::slot_RequestService);
-    connect(m_pServiceManage,&CServiceManage::signal_SendResponse,m_pWidgetViewManage,&CWidgetViewManage::slot_RecvResponse);
+    connect(m_pWidgetViewManage,&CWidgetViewManage::signalRequestService,m_pServiceManage,&CServiceManage::onRequestService,Qt::QueuedConnection);
+    connect(m_pServiceManage,&CServiceManage::signalSendResponse,m_pWidgetViewManage,&CWidgetViewManage::onRecvResponse,Qt::QueuedConnection);
 }
 
 
