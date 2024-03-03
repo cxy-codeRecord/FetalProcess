@@ -19,8 +19,8 @@ protected:
     bool connectTo(QString ip, int port);
     QSharedPointer<CDataStreamBase> sendNetData(QSharedPointer<CDataStreamBase> dataStream);
     QSharedPointer<CDataStreamBase> recvNetData(QSharedPointer<CDataStreamBase> dataStream);
-    QSharedPointer<CDataStreamBase> startRecord(QSharedPointer<CDataStreamBase> dataStream);
-
+    //QSharedPointer<CDataStreamBase> startRecord(QSharedPointer<CDataStreamBase> dataStream);
+    QSharedPointer<CDataStreamBase> controllerRecord(QSharedPointer<CDataStreamBase> dataStream);
 public:
     CNetService();
     void initModule();

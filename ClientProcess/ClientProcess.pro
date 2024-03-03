@@ -43,6 +43,7 @@ SOURCES += \
         ../Interface/WidgetView/CWidgetView.cpp \
         ../Interface/WidgetView/CWidgetViewManage.cpp \
         ../Interface/WidgetView/IWidgetView.cpp \
+        CDialog/CDialogManage.cpp \
         CMainView/CMainView.cpp \
         CTGView/CBackGround.cpp \
         CTGView/CCPAxisTickerTimer.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
         ../Interface/WidgetView/CWidgetView.h \
         ../Interface/WidgetView/CWidgetViewManage.h \
         ../Interface/WidgetView/IWidgetView.h \
+        CDialog/CDialogManage.h \
         CMainView/CMainView.h \
         CService/CNetService/CNetService.h \
         CTGView/CBackGround.h \
@@ -97,6 +99,7 @@ HEADERS += \
         form.h
 
 FORMS += \
+    CDialogManage.ui \
     form.ui
 
 # Default rules for deployment.

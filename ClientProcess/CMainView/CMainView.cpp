@@ -13,54 +13,62 @@ CMainView::CMainView(QWidget* parent):CWidgetView(CMAINVIEW_NAME,parent)
 
 void CMainView::initModule()
 {
-    registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(startRecord),bind(&CMainView::startRecordRecvHandle,this,std::placeholders::_1));
-}
-
-void CMainView::startRecord()
-{
-    QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
-    data->serviceName = CNETSERVICE_NAME;
-    data->handleFuncName = DEF_FUNC_NAME(startRecord);
-    data->data.cmd = CNetMessageType::START_RECORD;
-    requestService(data);
-}
-
-void CMainView::pauseRecord()
-{
-    QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
-    data->serviceName = CNETSERVICE_NAME;
-    data->handleFuncName = DEF_FUNC_NAME(pauseRecord);
-    data->data.cmd = CNetMessageType::PAUSE_RECORD;
-    requestService(data);
-}
-
-void CMainView::endRecord()
-{
-    QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
-    data->serviceName = CNETSERVICE_NAME;
-    data->handleFuncName = DEF_FUNC_NAME(endRecord);
-    data->data.cmd = CNetMessageType::END_RECORD;
-    requestService(data);
+    //registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(startRecord),bind(&CMainView::startRecordRecvHandle,this,std::placeholders::_1));
+    registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(controllerRecord),bind(&CMainView::controllerRecordRecvHandle,this,std::placeholders::_1));
 }
 
 void CMainView::onStartRecord()
 {
-    startRecord();
+    if(m_recordState == CRecordState::IDLE_STATE)
+    {
+        controllerRecord(CRecordCmd::START_RECORD);
+    }
+    else if(m_recordState == CRecordState::ONGOING_STATE)
+    {
+
+    }
+    else if(m_recordState == CRecordState::PAUSE_STATE)
+    {
+
+    }
 }
 
 void CMainView::onPauseRecord()
 {
-    pauseRecord();
+    controllerRecord(CRecordCmd::PAUSE_RECORD);
 }
 
 void CMainView::onEndRecord()
 {
-    endRecord();
+    controllerRecord(CRecordCmd::END_RECORD);
 }
+
 
 void CMainView::startRecordRecvHandle(QSharedPointer<CDataStreamBase> data)
 {
     qDebug()<<"CMainView startRecordRecvHandle";
+}
+
+void CMainView::controllerRecord(CRecordCmd cmd)
+{
+    QSharedPointer<CDataStream<CRecordCmd>> data = QSharedPointer<CDataStream<CRecordCmd>>(new CDataStream<CRecordCmd>);
+    data->serviceName = CNETSERVICE_NAME;
+    data->handleFuncName = SERVICE_FUNC_CONTROLLER_RECORD;
+    data->data = cmd;
+    requestService(data);
+}
+
+void CMainView::controllerRecordRecvHandle(QSharedPointer<CDataStreamBase> data)
+{
+    if(!data.isNull())
+    {
+        CDataStream<CRecordState>* ptr = data->toDataStream<CDataStream<CRecordState>>();
+        if(ptr)
+        {
+            CRecordState state = ptr->data;
+            m_recordState = state;
+        }
+    }
 }
 
 
