@@ -41,4 +41,13 @@ void Form::initView()
 void Form::initSlot()
 {
     connect(ui->startRecordBtn,&QPushButton::clicked,ui->mainView,&CMainView::onStartRecord);
+    connect(ui->digitalBar,&CDigitalBar::signalFetalHeartOneData,ui->mainView,[=](int data){
+        ui->fetalDataOneLabel->setText(QString().setNum(data));
+    });
+    connect(ui->digitalBar,&CDigitalBar::signalFetalHeartTwoData,ui->mainView,[=](int data){
+        ui->fetalDataTwoLabel->setText(QString().setNum(data));
+    });
+    connect(ui->digitalBar,&CDigitalBar::signalFetalHeartThreeData,ui->mainView,[=](int data){
+        ui->fetalDataThreeLabel->setText(QString().setNum(data));
+    });
 }

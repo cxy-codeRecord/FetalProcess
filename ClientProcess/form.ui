@@ -92,7 +92,7 @@ background-color:&quot;#1E1E1E&quot;;
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
        <x>1060</x>
@@ -152,7 +152,7 @@ font:Bold 70px;
       <string>180</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="fetalDataThreeLabel">
      <property name="geometry">
       <rect>
        <x>1170</x>
@@ -171,7 +171,7 @@ font:Bold 70px;
       <string>180</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="fetalDataTwoLabel">
      <property name="geometry">
       <rect>
        <x>1420</x>
@@ -190,7 +190,7 @@ font:Bold 70px;
       <string>180</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="fetalDataOneLabel">
      <property name="geometry">
       <rect>
        <x>1170</x>

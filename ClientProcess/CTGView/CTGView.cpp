@@ -198,15 +198,12 @@ void CTGView::getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase> data)
     static int dataIndex = 0;
     if(ptr)
     {
-        int heartOne = ptr->data.fetalHeartOne;
-        int heartTwo = ptr->data.fetalHeartTwo;
-        int heartThree = ptr->data.fetalHeartThree;
+        int heartOne = ptr->data.fetalHeartOne + FHR_YAXIS_OFFSET;
+        int heartTwo = ptr->data.fetalHeartTwo + FHR_YAXIS_OFFSET;
+        int heartThree = ptr->data.fetalHeartThree + FHR_YAXIS_OFFSET;
         m_FHR1Graph->addData(dataIndex,double(heartOne));
         m_FHR2Graph->addData(dataIndex,double(heartTwo));
         m_FHR3Graph->addData(dataIndex,double(heartThree));
-//        qDebug()<<"heartOne:"<<heartOne;
-//        qDebug()<<"heartTwo:"<<heartTwo;
-//        qDebug()<<"heartThree:"<<heartThree;
     }
     dataIndex++;
 }

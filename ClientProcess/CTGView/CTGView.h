@@ -69,9 +69,9 @@ protected:
     QCPGraph* m_TOCOGraph = nullptr;
     CGrid* m_Grid = nullptr;
 protected:
-    QColor m_FHR1LineColor = Qt::blue;
-    QColor m_FHR2LineColor = Qt::yellow;
-    QColor m_FHR3LineColor = Qt::green;
+    QColor m_FHR1LineColor = QColor("#DD598B");
+    QColor m_FHR2LineColor = QColor("#0193CF");
+    QColor m_FHR3LineColor = QColor("#F99F3E");
     QColor m_MHRLineColor = Qt::darkGreen;
     QColor m_TOCOLineColor = Qt::black;
     double m_1cmPixUnit = -1;

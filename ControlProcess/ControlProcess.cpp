@@ -105,8 +105,19 @@ void ControlProcess::onUpLoadCTGData()
     data.cmd = CNetMessageType_T::UPLOAD_CTG_POINTS;
     data.data.resize(4*3);
     QDataStream stream(&data.data,QIODevice::ReadWrite);
+<<<<<<< HEAD
+    int demoFetalHeartOneData = m_demoFHRGenerate.getDemoFetalHeartOneData();
+    int demoFetalHeartTwoData = m_demoFHRGenerate.getDemoFetalHeartTwoData();
+    int demoFetalHeartThreeData = m_demoFHRGenerate.getDemoFetalHeartThreeData();
+    stream<<int(demoFetalHeartOneData);
+    stream<<int(demoFetalHeartTwoData);
+    stream<<int(demoFetalHeartThreeData);
+    qDebug()<<"demoFetalHeartOneData:"<<demoFetalHeartOneData;
+
+=======
     stream<<int(100);
     stream<<int(80);
     stream<<int(120);
+>>>>>>> 11595e470d5ff74c05c1626b9aa15bb983d2a141
     m_clientSockDataHandle.get()->sendNetData(CNetMessageType_T::UPLOAD_CTG_POINTS,data.data);
 }

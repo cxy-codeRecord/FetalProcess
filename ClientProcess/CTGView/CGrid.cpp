@@ -26,35 +26,38 @@ void CGrid::initSettingYTick()
 void CGrid::initFHRTextElement()
 {
     QVector<QColor> vector;
-    vector.append(QColor(0xff,0xf3,0xbf));
+    vector.append(QColor(0xff,0xd7,0xbf));
     QVector<QColor> vector2;
     vector2.append(QColor(0xff,0xf3,0xbf));
     vector2.append(QColor(0xde,0xff,0xd1));
     QVector<QColor> vector3;
     vector3.append(QColor(0xde,0xff,0xd1));
     QVector<QColor> vector4;
-    vector4.append(QColor(0xde,0xff,0xd1));
+    vector4.append(QColor(0xff,0xd7,0xbf));
     vector4.append(QColor(0xff,0xf3,0xbf));
     QVector<QColor> vector5;
     vector5.append(QColor(0xff,0xf3,0xbf));
+    vector5.append(QColor(0xff,0xd7,0xbf));
     QVector<QColor> vector6;
-    vector6.append(QColor(0xff,0xf3,0xbf));
+    vector6.append(QColor(0xff,0xd7,0xbf));
     vector6.append(QColor(224,224,224));
+    QVector<QColor> vector7;
+    vector7.append(QColor(0xff,0xd7,0xbf));
     addFHRTextElement(250,"200",vector);
-    addFHRTextElement(230,"180",vector);
+    addFHRTextElement(230,"180",vector4);
     addFHRTextElement(210,"160",vector2);
     addFHRTextElement(190,"140",vector3);
     addFHRTextElement(170,"120",vector3);
     addFHRTextElement(150,"100",vector5);
-    addFHRTextElement(130,"80",vector5);
-    addFHRTextElement(110,"60",vector5);
+    addFHRTextElement(130,"80",vector7);
+    addFHRTextElement(110,"60",vector7);
     addFHRTextElement(100,"HR",vector6);
 }
 
 void CGrid::initTOCOTextElement()
 {
     QVector<QColor> vector;
-    vector.append(QColor(0xff,0xf3,0xbf));
+    vector.append(QColor(0xff,0xd7,0xbf));
     vector.append(QColor(224,224,224));
     addTOCOTextElement(100,"100",vector);
     QVector<QColor> vector2;
@@ -104,12 +107,9 @@ void CGrid::draw(QCPPainter *painter)
         int value = space*printerUnitPoints;
         for(int i=value;i<newXRangeUpper;i+=printerUnitPoints)
         {
-            //if((xPos>=m_xAxis->axisRect()->left()+10)&&(xPos<=m_xAxis->axisRect()->right()-10))
-            //{
             xTickVector.append(i);
             tickValue = i;
             handleXSubTickValue(xSubTickVector,tickValue);
-            //}
         }
         double pos = 0;
         QPen penSolid(QColor(200,200,200), 0, Qt::SolidLine);

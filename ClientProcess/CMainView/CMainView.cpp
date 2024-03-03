@@ -14,13 +14,6 @@ CMainView::CMainView(QWidget* parent):CWidgetView(CMAINVIEW_NAME,parent)
 void CMainView::initModule()
 {
     registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(startRecord),bind(&CMainView::startRecordRecvHandle,this,std::placeholders::_1));
-//    connect(&m_timer,&QTimer::timeout,this,[=](){
-//        QSharedPointer<CDataStreamBase>pack = QSharedPointer<CDataStreamBase>(new CDataStreamBase);
-//        pack->serviceName = CNETSERVICE_NAME;
-//        pack->handleFuncName = SERVICE_FUNC_RECV_NETDATA;
-//        requestService(pack);
-//    });
-//    m_timer.start(100);
 }
 
 void CMainView::startRecord()
@@ -32,9 +25,37 @@ void CMainView::startRecord()
     requestService(data);
 }
 
+void CMainView::pauseRecord()
+{
+    QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
+    data->serviceName = CNETSERVICE_NAME;
+    data->handleFuncName = DEF_FUNC_NAME(pauseRecord);
+    data->data.cmd = CNetMessageType_T::PAUSE_RECORD;
+    requestService(data);
+}
+
+void CMainView::endRecord()
+{
+    QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
+    data->serviceName = CNETSERVICE_NAME;
+    data->handleFuncName = DEF_FUNC_NAME(endRecord);
+    data->data.cmd = CNetMessageType_T::END_RECORD;
+    requestService(data);
+}
+
 void CMainView::onStartRecord()
 {
     startRecord();
+}
+
+void CMainView::onPauseRecord()
+{
+    pauseRecord();
+}
+
+void CMainView::onEndRecord()
+{
+    endRecord();
 }
 
 void CMainView::startRecordRecvHandle(QSharedPointer<CDataStreamBase> data)

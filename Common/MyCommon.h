@@ -91,6 +91,9 @@ protected:\
 #define DEF_VIEW_NAME(x) #x
 #define CMAINWIN_WIDTH  1680
 #define CMAINWIN_HEIGHT 1080
+#define FHR_YAXIS_OFFSET 50
+#define TOCO_YAXIS_OFFSET 0
+
 
 
 

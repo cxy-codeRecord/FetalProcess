@@ -8,9 +8,11 @@ CBackGround::CBackGround(QCustomPlot* plot):QCPLayerable(plot)
 //    addElement(160,210,QColor(0xde,0xff,0xd1));//胎心 110-160
 //    addElement(210,260,QColor(0xff,0xf3,0xbf));//胎心 160-210
     addElement(0,100,(QColor(224,224,224))); //宫压0-100
-    addElement(100,160,QColor(0xff,0xf3,0xbf)); //胎心 50-110
+    addElement(100,150,QColor(0xff,0xd7,0xbf)); //胎心 50-100
+    addElement(150,160,QColor(0xff,0xf3,0xbf)); //胎心 100-110
     addElement(160,210,QColor(0xde,0xff,0xd1));//胎心 110-160
-    addElement(210,260,QColor(0xff,0xf3,0xbf));//胎心 160-210
+    addElement(210,230,QColor(0xff,0xf3,0xbf)); //胎心 160-180
+    addElement(230,260,QColor(0xff,0xd7,0xbf));//胎心 180-210
 
 }
 

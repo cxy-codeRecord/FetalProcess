@@ -32,4 +32,7 @@ struct CFetalHeartData
     int fetalHeartTwo = 0xff;
     int fetalHeartThree = 0xff;
 };
+
+
+
 #endif // CDATASTRUCTS_H
