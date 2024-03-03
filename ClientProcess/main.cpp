@@ -1,9 +1,9 @@
 #include <QApplication>
 #include "form.h"
 #include "CService/CServiceGenerate/CServiceGenerate.h"
-#include "../../Interface/Controller/CController.h"
+#include "../Interface/Controller/CController.h"
 #include <QMetaType>
-#include "../../Common/CDataStructs.h"
+#include "../Common/CDataStructs.h"
 #include <QSharedPointer>
 #include <QProcess>
 #include <QThread>
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 //        a.setFont(font);
 //    }
     QProcess process;
-    QString program = "C:/Users/14866/Desktop/git_FetalProcess/FetalProcess/Output/ControlProcess/debug/ControlProcess.exe";
+    QString program = "C:/Users/14866/Desktop/git_Fetal/Output/FetalProcess/debug/ControlProcess.exe";
     process.start(program,QStringList());
     process.waitForStarted();
     qRegisterMetaType<QSharedPointer<CDataStreamBase>>("QSharedPointer<CDataStreamBase>");

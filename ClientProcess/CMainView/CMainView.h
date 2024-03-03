@@ -11,8 +11,12 @@ public:
     CMainView(QWidget* parent=nullptr);
     void initModule();
     void startRecord();
+    void pauseRecord();
+    void endRecord();
 public slots:
     void onStartRecord();
+    void onPauseRecord();
+    void onEndRecord();
 protected:
     QTimer m_timer;
 protected:

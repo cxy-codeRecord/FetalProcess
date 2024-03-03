@@ -2,7 +2,7 @@
 #define CSTATUSBAR_H
 
 #include <QWidget>
-#include "../../Interface/WidgetView/CWidgetView.h"
+#include "../Interface/WidgetView/CWidgetView.h"
 class CStatusBar : public CWidgetView
 {
     Q_OBJECT

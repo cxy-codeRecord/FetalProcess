@@ -2,7 +2,7 @@
 #define CMENUBAR_H
 
 #include <QObject>
-#include "../../Interface/WidgetView/CWidgetView.h"
+#include "../Interface/WidgetView/CWidgetView.h"
 class CMenuBar : public CWidgetView
 {
 public:

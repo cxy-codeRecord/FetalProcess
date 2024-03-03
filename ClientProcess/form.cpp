@@ -1,5 +1,5 @@
 #include "form.h"
-#include "../Output/ClientProcess/ui_form.h"
+#include "../../Output/FetalProcess/ui_form.h"
 #include "../Common/MyCommon.h"
 Form::Form(QWidget *parent) :
     QMainWindow(parent),
