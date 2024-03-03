@@ -102,7 +102,7 @@ void ControlProcess::onBytesWritten(qint64 bytes)
 void ControlProcess::onUpLoadCTGData()
 {
     CNetData data;
-    data.cmd = CNetMessageType_T::UPLOAD_CTG_POINTS;
+    data.cmd = CNetMessageType::UPLOAD_CTG_POINTS;
     data.data.resize(4*3);
     QDataStream stream(&data.data,QIODevice::ReadWrite);
     int demoFetalHeartOneData = m_demoFHRGenerate.getDemoFetalHeartOneData();
@@ -111,5 +111,5 @@ void ControlProcess::onUpLoadCTGData()
     stream<<int(demoFetalHeartOneData);
     stream<<int(demoFetalHeartTwoData);
     stream<<int(demoFetalHeartThreeData);
-    m_clientSockDataHandle.get()->sendNetData(CNetMessageType_T::UPLOAD_CTG_POINTS,data.data);
+    m_clientSockDataHandle.get()->sendNetData(CNetMessageType::UPLOAD_CTG_POINTS,data.data);
 }

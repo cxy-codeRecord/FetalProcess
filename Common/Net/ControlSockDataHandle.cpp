@@ -28,10 +28,10 @@ void ControlSockDataHandle::handleNetMessage(QSharedPointer<CNetMessage> netMess
 //    qDebug()<<strData;
 //    qDebug()<<strIndex;
     //emit signalReadData(type,data,index);
-    CNetMessageType_T type = (CNetMessageType_T)netMessage->getDataType();
+    CNetMessageType type = (CNetMessageType)netMessage->getDataType();
     switch (type)
     {
-    case CNetMessageType_T::UPLOAD_CTG_POINTS:
+    case CNetMessageType::UPLOAD_CTG_POINTS:
     {
        QByteArray data = netMessage->getData();
        QDataStream stream(data);

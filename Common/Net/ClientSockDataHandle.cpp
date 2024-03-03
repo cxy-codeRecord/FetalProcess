@@ -26,20 +26,20 @@ void ClientSockDataHandle::handleNetMessage(QSharedPointer<CNetMessage> netMessa
 //    QByteArray ba;
 //    this->sendNetData((int)CMD_FETAL_HEART_RATE,ba);
     if(netMessage.isNull())return;
-    CNetMessageType_T type = (CNetMessageType_T)netMessage->getDataType();
+    CNetMessageType type = (CNetMessageType)netMessage->getDataType();
     switch (type)
     {
-    case CNetMessageType_T::START_RECORD:
+    case CNetMessageType::START_RECORD:
     {
         emit signalStartRecord();
         break;
     }
-    case CNetMessageType_T::PAUSE_RECORD:
+    case CNetMessageType::PAUSE_RECORD:
     {
         emit signalPauseRecord();
         break;
     }
-    case CNetMessageType_T::END_RECORD:
+    case CNetMessageType::END_RECORD:
     {
         emit signalEndRecord();
         break;

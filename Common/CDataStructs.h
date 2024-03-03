@@ -33,6 +33,11 @@ struct CFetalHeartData
     int fetalHeartThree = 0xff;
 };
 
-
+enum class RecordState
+{
+    IDLE_STATE,
+    PAUSE_STATE,
+    ONGOING_STATE
+};
 
 #endif // CDATASTRUCTS_H

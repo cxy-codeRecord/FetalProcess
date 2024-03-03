@@ -4,7 +4,7 @@
 //存放结构体和枚举
 
 
-enum CNetMessageType_T
+enum CNetMessageType
 {
     ESTABLISH_CONNECT,
     START_RECORD,
@@ -13,7 +13,7 @@ enum CNetMessageType_T
     UPLOAD_CTG_POINTS
 };
 
-enum CNetError_T
+enum CNetError
 {
     NO_ERROR,
     LOST_PACKET_ERROR
@@ -22,7 +22,7 @@ enum CNetError_T
 
 struct CNetData
 {
-    CNetMessageType_T cmd;
+    CNetMessageType cmd;
     QByteArray data;
 };
 

@@ -20,7 +20,7 @@ QSharedPointer<CDataStreamBase> CNetService::sendNetData(QSharedPointer<CDataStr
     if(netData)
     {
         CNetData& dataStruct = netData->data;
-        CNetMessageType_T& cmd = dataStruct.cmd;
+        CNetMessageType& cmd = dataStruct.cmd;
         QByteArray& data = dataStruct.data;
         m_controlSockDataHandle->sendNetData(cmd,data);
     }

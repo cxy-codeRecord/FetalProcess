@@ -21,7 +21,7 @@ void CMainView::startRecord()
     QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
     data->serviceName = CNETSERVICE_NAME;
     data->handleFuncName = DEF_FUNC_NAME(startRecord);
-    data->data.cmd = CNetMessageType_T::START_RECORD;
+    data->data.cmd = CNetMessageType::START_RECORD;
     requestService(data);
 }
 
@@ -30,7 +30,7 @@ void CMainView::pauseRecord()
     QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
     data->serviceName = CNETSERVICE_NAME;
     data->handleFuncName = DEF_FUNC_NAME(pauseRecord);
-    data->data.cmd = CNetMessageType_T::PAUSE_RECORD;
+    data->data.cmd = CNetMessageType::PAUSE_RECORD;
     requestService(data);
 }
 
@@ -39,7 +39,7 @@ void CMainView::endRecord()
     QSharedPointer<CDataStream<CNetData>> data = QSharedPointer<CDataStream<CNetData>>(new CDataStream<CNetData>);
     data->serviceName = CNETSERVICE_NAME;
     data->handleFuncName = DEF_FUNC_NAME(endRecord);
-    data->data.cmd = CNetMessageType_T::END_RECORD;
+    data->data.cmd = CNetMessageType::END_RECORD;
     requestService(data);
 }
 

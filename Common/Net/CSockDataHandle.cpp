@@ -61,11 +61,11 @@ void CSockDataHandle::parseReadSockBufferData()
                     packetMessage->appendData(&buffer->data()[packetDataBeginPos],dataLen);
                     m_ReadSockBuffer.appendNetMessage(packetMessage);
                     buffer->remove(packetHeadBeginPos,packetTailEndPos+1);
-                    m_ReadSockBuffer.setError(CNetError_T::NO_ERROR);
+                    m_ReadSockBuffer.setError(CNetError::NO_ERROR);
                 }
                 else
                 {
-                    m_ReadSockBuffer.setError(CNetError_T::LOST_PACKET_ERROR);
+                    m_ReadSockBuffer.setError(CNetError::LOST_PACKET_ERROR);
                     //buffer->remove(packetHeadBeginPos,packetTailEndPos+1);
                     buffer->remove(0,3);
                 }
@@ -73,7 +73,7 @@ void CSockDataHandle::parseReadSockBufferData()
         }
         else
         {
-            m_ReadSockBuffer.setError(CNetError_T::LOST_PACKET_ERROR);
+            m_ReadSockBuffer.setError(CNetError::LOST_PACKET_ERROR);
             buffer->remove(0,1);
         }
         ret = (m_ReadSockBuffer.getBufferSize()>=(int)NET_MIN_PACKET_LENGTH);

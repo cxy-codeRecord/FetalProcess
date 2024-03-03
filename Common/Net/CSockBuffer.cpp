@@ -36,12 +36,12 @@ QSharedPointer<CNetMessage> CSockBuffer::readFirstNetMessage()
 }
 
 
-CNetError_T CSockBuffer::getError()
+CNetError CSockBuffer::getError()
 {
     return m_error;
 }
 
-void CSockBuffer::setError(CNetError_T error)
+void CSockBuffer::setError(CNetError error)
 {
     if(error!=m_error)
     {

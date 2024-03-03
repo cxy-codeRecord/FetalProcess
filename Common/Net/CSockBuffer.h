@@ -15,8 +15,8 @@ public:
 public:
     QSharedPointer<CNetMessage> removeFirstNetMessage();
     QSharedPointer<CNetMessage> readFirstNetMessage();
-    CNetError_T getError();
-    void setError(CNetError_T error);
+    CNetError getError();
+    void setError(CNetError error);
     void appendBufferData(const QByteArray& data);
     void appendNetMessage(QSharedPointer<CNetMessage>data);
     int getBufferSize();
@@ -25,7 +25,7 @@ public:
 protected:
     QQueue<QSharedPointer<CNetMessage>> m_NetMessageQueue;
     QByteArray m_buffer;
-    CNetError_T m_error = CNetError_T::NO_ERROR;
+    CNetError m_error = CNetError::NO_ERROR;
 //    int m_errorDataIndex = 0;
 
 
