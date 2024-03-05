@@ -18,6 +18,7 @@ enum SERVICE_THREAD_ID
 #define SERVICE_FUNC_START_RECORD  "startRecord"
 #define SERVICE_FUNC_RECV_NETDATA  "recvNetData"
 #define SERVICE_FUNC_GET_FETAL_HEART_DATA "getFetalHeartData"
+#define SERVICE_FUNC_CONTROLLER_RECORD "controllerRecord"
 
 
 

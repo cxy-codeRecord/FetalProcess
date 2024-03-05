@@ -11,7 +11,7 @@ public:
     void startTimerHandle(int ms,QSharedPointer<CDataStreamBase> base);
     //void startTimerHandle(int timeout,function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)> func);
 protected:
-    void regiserService(const IService* service,const SERVICE_THREAD_ID& threadId);
+    void registerService(const IService* service,const SERVICE_THREAD_ID& threadId);
 };
 
 #endif // CSERVICE_H

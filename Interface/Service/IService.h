@@ -16,7 +16,7 @@ protected:
     QString m_serviceName;
     SERVICE_THREAD_ID m_serviceThreadId = SERVICE_THREAD_ID::ServiceThread0;
     QMap<QString,function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)>> m_mapServiceHandleFunc;
-    virtual void regiserService(const IService* service,const SERVICE_THREAD_ID& threadId)=0;
+    virtual void registerService(const IService* service,const SERVICE_THREAD_ID& threadId)=0;
 public:
     QString getServiceName();
     SERVICE_THREAD_ID getServiceThreadId();

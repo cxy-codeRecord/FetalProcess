@@ -5,6 +5,7 @@
 #include <QMetaType>
 #include <QDebug>
 #include <QByteArray>
+#include <QSharedPointer>
 struct CDataStreamBase
 {
 public:
@@ -24,7 +25,15 @@ template<typename T>
 struct CDataStream:CDataStreamBase
 {
     T data;
+    static QSharedPointer<CDataStream<T>> createDataStream();
 };
+
+template <typename T>
+QSharedPointer<CDataStream<T>> CDataStream<T>::createDataStream()
+{
+    QSharedPointer<CDataStream<T>> ptr = QSharedPointer<CDataStream<T>>(new CDataStream<T>);
+    return ptr;
+}
 
 struct CFetalHeartData
 {
@@ -33,11 +42,20 @@ struct CFetalHeartData
     int fetalHeartThree = 0xff;
 };
 
-enum class RecordState
+enum class CRecordState
 {
+    INIT_STATE,
     IDLE_STATE,
     PAUSE_STATE,
-    ONGOING_STATE
+    ONGOING_STATE,
+    ERROR_STATE
+};
+
+enum class CRecordCmd
+{
+    START_RECORD,
+    PAUSE_RECORD,
+    END_RECORD
 };
 
 #endif // CDATASTRUCTS_H

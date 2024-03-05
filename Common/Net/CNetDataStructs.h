@@ -10,7 +10,7 @@ enum CNetMessageType
     START_RECORD,
     PAUSE_RECORD,
     END_RECORD,
-    UPLOAD_CTG_POINTS
+    UPLOAD_CTG_POINTS,
 };
 
 enum CNetError

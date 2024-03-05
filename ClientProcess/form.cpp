@@ -3,7 +3,8 @@
 #include "../Common/MyCommon.h"
 Form::Form(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::Form)
+    ui(new Ui::Form),
+    m_DialogManage(this)
 {
     ui->setupUi(this);
 }
@@ -49,5 +50,9 @@ void Form::initSlot()
     });
     connect(ui->digitalBar,&CDigitalBar::signalFetalHeartThreeData,ui->mainView,[=](int data){
         ui->fetalDataThreeLabel->setText(QString().setNum(data));
+    });
+    connect(ui->toolButton,&QPushButton::clicked,this,[=](){
+       m_DialogManage.show();
+       m_DialogManage.exec();
     });
 }

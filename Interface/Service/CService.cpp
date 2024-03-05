@@ -2,7 +2,7 @@
 #include "../Controller/CController.h"
 CService::CService(const QString &serviceName,const SERVICE_THREAD_ID& threadId, QObject *parent):IService(serviceName,threadId,parent)
 {
-    regiserService(this,threadId);
+    registerService(this,threadId);
 }
 
 void CService::startTimerHandle(int ms, QSharedPointer<CDataStreamBase> base)
@@ -12,7 +12,7 @@ void CService::startTimerHandle(int ms, QSharedPointer<CDataStreamBase> base)
 
 
 
-void CService::regiserService(const IService *service, const SERVICE_THREAD_ID &threadId)
+void CService::registerService(const IService *service, const SERVICE_THREAD_ID &threadId)
 {
     CController::getInstance()->registerService(this,threadId);
 }
