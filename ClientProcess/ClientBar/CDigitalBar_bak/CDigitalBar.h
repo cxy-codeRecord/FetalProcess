@@ -1,22 +1,17 @@
 #ifndef CDIGITALBAR_H
 #define CDIGITALBAR_H
-
-#include <QWidget>
 #include "../Interface/WidgetView/CWidgetView.h"
 namespace Ui {
-class CDigitalBar;
+class Form;
 }
-
 class CDigitalBar : public CWidgetView
 {
     Q_OBJECT
-
-public:
-    explicit CDigitalBar(QWidget *parent = nullptr);
-    ~CDigitalBar();
-    void initModule();
 private:
-    Ui::CDigitalBar *ui;
+    Ui::Form *ui;
+public:
+    CDigitalBar(QWidget* parent=nullptr);
+    void initModule();
 protected:
     void getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase>data);
 signals:

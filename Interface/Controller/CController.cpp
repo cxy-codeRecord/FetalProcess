@@ -9,8 +9,8 @@ CController::CController(QObject *parent):IController(parent),
 
 void CController::initModule()
 {
-    initServiceManage();
     initWidgetViewManage();
+    initServiceManage();
     initSlot();
 }
 

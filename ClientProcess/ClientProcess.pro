@@ -52,11 +52,12 @@ SOURCES += \
         CTGView/CTGState.cpp \
         CTGView/CTGView.cpp \
         CTGView/qcustomplot.cpp \
+        CViewHelp/CViewHelp.cpp \
         ClientBar/CDigitalBar/CDigitalBar.cpp \
         ClientBar/CMenuBar/CMenuBar.cpp \
-        ClientBar/CStatusBar/CStatusBar.cpp \
         CService/CNetService/CNetService.cpp\
         CService/CServiceGenerate/CServiceGenerate.cpp \
+        ClientBar/CStatusBar/CStatusBar.cpp \
         form.cpp \
         main.cpp
 
@@ -94,15 +95,19 @@ HEADERS += \
         CTGView/CTGState.h \
         CTGView/CTGView.h \
         CTGView/qcustomplot.h \
+        CViewHelp/CViewHelp.h \
         ClientBar/CDigitalBar/CDigitalBar.h \
         ClientBar/CMenuBar/CMenuBar.h \
-        ClientBar/CStatusBar/CStatusBar.h \
         CService/CServiceGenerate/CServiceGenerate.h \
+        ClientBar/CStatusBar/CStatusBar.h \
         form.h
 
 FORMS += \
     CDialog/CDialogManage/CDialogManage.ui \
     CDialog/CHandleOnGoingStateDialog/CHandleOnGoingStateDialog.ui \
+    ClientBar/CDigitalBar/CDigitalBar.ui \
+    ClientBar/CMenuBar/CMenuBar.ui \
+    ClientBar/CStatusBar/CStatusBar.ui \
     form.ui
 
 # Default rules for deployment.

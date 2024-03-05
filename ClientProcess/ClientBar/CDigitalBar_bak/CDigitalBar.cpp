@@ -1,9 +1,9 @@
 #include "CDigitalBar.h"
-#include "ui_CDigitalBar.h"
+//#include "../../Common/MyCommon.h"
 #include "../Common/View/ViewCommon.h"
-CDigitalBar::CDigitalBar(QWidget *parent) :
-    CWidgetView (CDIGITALBAR_NAME,parent),
-    ui(new Ui::CDigitalBar)
+#include "../../Output/FetalProcess/ui_CDigitalBar.h"
+CDigitalBar::CDigitalBar(QWidget* parent):CWidgetView (CDIGITALBAR_NAME,parent),
+    ui(new Ui::Form)
 {
     ui->setupUi(this);
 }
@@ -11,11 +11,6 @@ CDigitalBar::CDigitalBar(QWidget *parent) :
 void CDigitalBar::initModule()
 {
     registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(SERVICE_FUNC_GET_FETAL_HEART_DATA),bind(&CDigitalBar::getFetalHeartDataRecvHandle,this,std::placeholders::_1));
-}
-
-CDigitalBar::~CDigitalBar()
-{
-    delete ui;
 }
 
 void CDigitalBar::getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase> data)

@@ -1,6 +1,6 @@
 #include "CMenuBar.h"
-#include "ui_CMenuBar.h"
 #include "../Common/View/ViewCommon.h"
+#include "../../Output/FetalProcess/ui_CMenuBar.h"
 #include "../../../Common/View/ViewCommon.h"
 #include "../../../Common/MyCommon.h"
 #include "../../../Common/CDataStructs.h"
@@ -9,29 +9,29 @@
 #include "../../../Common/Net/CNetDataStructs.h"
 #include "../../CViewHelp/CViewHelp.h"
 CMenuBar::CMenuBar(QWidget* parent):CWidgetView(CMENUBAR_NAME,parent),
-    ui(new Ui::CMenuBar)
+    ui(new Ui::Form)
 {
 
+//    initView();
+//    initSlot();
 }
 
 void CMenuBar::initModule()
 {
     ui->setupUi(this);
-    initView();
-    initSlot();
     initRegisterRecvResponseHandle();
 }
 
 void CMenuBar::initView()
 {
-    ui->startRecordBtn->setIcon(QIcon(":/Image/MenuBar/FetalStartRecord.svg"));
-    ui->startRecordBtn->setIconSize(QSize(60,60));
-    ui->startRecordBtn->initPageButton();
+//    ui->startRecordBtn->setIcon(QIcon(":/Image/MenuBar/FetalStartRecord.svg"));
+//    ui->startRecordBtn->setIconSize(QSize(60,60));
+//    ui->startRecordBtn->initPageButton();
 }
 
 void CMenuBar::initSlot()
 {
-    connect(ui->startRecordBtn,&QPushButton::clicked,this,&CMenuBar::onStartRecord);
+    //connect(ui->startRecordBtn,&QPushButton::clicked,this,&CMenuBar::onStartRecord);
     connect(this,&CMenuBar::signalShowDealOnGoingRecordDialog,CViewHelp::getInstance(),&CViewHelp::signalShowDealOnGoingRecordDialog);
     connect(this,&CMenuBar::signalShowDealPauseRecordDialog,CViewHelp::getInstance(),&CViewHelp::signalShowDealPauseRecordDialog);
 }
@@ -77,9 +77,4 @@ void CMenuBar::onStartRecord()
     {
         emit signalShowDealPauseRecordDialog();
     }
-}
-
-CMenuBar::~CMenuBar()
-{
-
 }

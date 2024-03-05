@@ -3,15 +3,20 @@
 
 #include <QWidget>
 #include "../Interface/WidgetView/CWidgetView.h"
+namespace Ui {
+class CStatusBar;
+}
+
 class CStatusBar : public CWidgetView
 {
     Q_OBJECT
+
 public:
     explicit CStatusBar(QWidget *parent = nullptr);
+    ~CStatusBar();
     void initModule();
-signals:
-
-public slots:
+private:
+    Ui::CStatusBar *ui;
 };
 
 #endif // CSTATUSBAR_H

@@ -1,9 +1,16 @@
 #include "CStatusBar.h"
-//#include "../Common/MyCommon.h"
+#include "ui_CStatusBar.h"
 #include "../Common/View/ViewCommon.h"
-CStatusBar::CStatusBar(QWidget *parent):CWidgetView(CSTATUSBAR_NAME,parent)
+CStatusBar::CStatusBar(QWidget *parent) :
+    CWidgetView(CSTATUSBAR_NAME,parent),
+    ui(new Ui::CStatusBar)
 {
-   setStyleSheet("QWidget:{background-color:#000000;}");
+    ui->setupUi(this);
+}
+
+CStatusBar::~CStatusBar()
+{
+    delete ui;
 }
 
 void CStatusBar::initModule()

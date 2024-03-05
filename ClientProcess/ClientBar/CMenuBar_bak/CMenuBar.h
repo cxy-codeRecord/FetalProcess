@@ -1,20 +1,21 @@
 #ifndef CMENUBAR_H
 #define CMENUBAR_H
 
-#include <QWidget>
+#include <QObject>
 #include "../Interface/WidgetView/CWidgetView.h"
 namespace Ui {
-class CMenuBar;
+class Form;
 }
 
 class CMenuBar : public CWidgetView
 {
     Q_OBJECT
 private:
-    Ui::CMenuBar *ui;
+    Ui::Form *ui;
+protected:
+    CRecordState m_recordState = CRecordState::IDLE_STATE;
 public:
-    explicit CMenuBar(QWidget *parent = nullptr);
-    ~CMenuBar();
+    CMenuBar(QWidget* parent = nullptr);
     void initModule();
 protected:
     void initView();
@@ -28,9 +29,6 @@ protected slots:
 signals:
     void signalShowDealOnGoingRecordDialog();
     void signalShowDealPauseRecordDialog();
-protected:
-    CRecordState m_recordState = CRecordState::IDLE_STATE;
-
 };
 
 #endif // CMENUBAR_H

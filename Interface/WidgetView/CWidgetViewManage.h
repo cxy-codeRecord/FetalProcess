@@ -15,10 +15,13 @@ class CWidgetViewManage : public QObject
 public:
     explicit CWidgetViewManage(QObject *parent = nullptr);
     void initModule(){
+        //qDebug()<<"m_vectorWidgetView "<<" begin";
         auto it = m_vectorWidgetView.begin();
         while(it!=m_vectorWidgetView.end())
         {
+            //qDebug()<<"IWidgetView:"<<(*it)->getViewName()<<" begin";
             (*it)->initModule();
+            //qDebug()<<"IWidgetView:"<<(*it)->getViewName()<<" end";
             it++;
         }
     };

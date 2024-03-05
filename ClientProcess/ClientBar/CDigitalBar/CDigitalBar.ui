@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CDigitalBar</class>
+ <widget class="QWidget" name="CDigitalBar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1550</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#1E1E1E</string>
+  </property>
+  <widget class="QLabel" name="fetalDataOneLabel">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>10</y>
+     <width>121</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color:rgb(221,89,139);
+font:Bold 70px;
+}</string>
+   </property>
+   <property name="text">
+    <string>180</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fetalDataThreeLabel">
+   <property name="geometry">
+    <rect>
+     <x>1170</x>
+     <y>110</y>
+     <width>121</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color:rgb(249,159,62);
+font:Bold 70px;
+}</string>
+   </property>
+   <property name="text">
+    <string>180</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mhrDataLabel">
+   <property name="geometry">
+    <rect>
+     <x>1420</x>
+     <y>110</y>
+     <width>121</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color:rgb(255,255,255);
+font:Bold 70px;
+}</string>
+   </property>
+   <property name="text">
+    <string>180</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mhrImage">
+   <property name="geometry">
+    <rect>
+     <x>1310</x>
+     <y>110</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../../Resource/resource.qrc">:/Image/DigitalBar/FECGHeart4.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fetalOneImage">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>10</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../../Resource/resource.qrc">:/Image/DigitalBar/FHR2Heart4.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fetalTwoImage">
+   <property name="geometry">
+    <rect>
+     <x>1310</x>
+     <y>10</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../../Resource/resource.qrc">:/Image/DigitalBar/FHR1Heart4.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fetalThreeImage">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>110</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../../Resource/resource.qrc">:/Image/DigitalBar/FHR3Heart4.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fetalDataTwoLabel">
+   <property name="geometry">
+    <rect>
+     <x>1420</x>
+     <y>10</y>
+     <width>121</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color:rgb(1,147,207);
+font:Bold 70px;
+}</string>
+   </property>
+   <property name="text">
+    <string>180</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Resource/resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
