@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 //        a.setFont(font);
 //    }
     QProcess process;
-    QString program = "C:/Users/14866/Desktop/git_fetalProcess2/Output/ControlProcess/debug/ControlProcess.exe";
+    QString program = "D:/FetalProcessCode/Output/ControlProcess/debug/ControlProcess.exe";
     process.start(program,QStringList());
     process.waitForStarted();
     qRegisterMetaType<QSharedPointer<CDataStreamBase>>("QSharedPointer<CDataStreamBase>");
