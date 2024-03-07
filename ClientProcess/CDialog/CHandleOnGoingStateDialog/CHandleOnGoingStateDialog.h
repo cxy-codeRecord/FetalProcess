@@ -20,6 +20,7 @@ signals:
 protected slots:
     void onPauseRecord();
     void onEndRecord();
+    void onCancel();
 private:
     Ui::CHandleOnGoingStateDialog *ui;
 };

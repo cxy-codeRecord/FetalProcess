@@ -14,22 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="CMainView" name="mainView">
-   <widget class="CStatusBar" name="statusBar" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>1000</y>
-      <width>1680</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QWidget
-{
-background-color:&quot;#1E1E1E&quot;;
-}</string>
-    </property>
-   </widget>
    <widget class="CTGView" name="ctgView" native="true">
     <property name="geometry">
      <rect>
@@ -57,6 +41,16 @@ background-color:&quot;#1E1E1E&quot;;
       <y>0</y>
       <width>1551</width>
       <height>201</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="CStatusBar" name="statusBar" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>1000</y>
+      <width>1681</width>
+      <height>81</height>
      </rect>
     </property>
    </widget>

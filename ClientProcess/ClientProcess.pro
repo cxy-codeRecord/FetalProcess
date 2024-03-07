@@ -45,6 +45,7 @@ SOURCES += \
         ../Interface/WidgetView/IWidgetView.cpp \
         CDialog/CDialogManage/CDialogManage.cpp \
         CDialog/CHandleOnGoingStateDialog/CHandleOnGoingStateDialog.cpp \
+        CDialog/CHandlePauseStateDialog/CHandlePauseStateDialog.cpp \
         CMainView/CMainView.cpp \
         CTGView/CBackGround.cpp \
         CTGView/CCPAxisTickerTimer.cpp \
@@ -63,6 +64,7 @@ SOURCES += \
 
 HEADERS += \
         ../Common/CDataStructs.h \
+        ../Common/Dialog/DialogCommon.h \
         ../Common/Net/CNetCommon.h \
         ../Common/Net/CNetDataStructs.h \
         ../Common/Net/CNetMessage.h \
@@ -87,6 +89,7 @@ HEADERS += \
         ../Interface/WidgetView/IWidgetView.h \
         CDialog/CDialogManage/CDialogManage.h \
         CDialog/CHandleOnGoingStateDialog/CHandleOnGoingStateDialog.h \
+        CDialog/CHandlePauseStateDialog/CHandlePauseStateDialog.h \
         CMainView/CMainView.h \
         CService/CNetService/CNetService.h \
         CTGView/CBackGround.h \
@@ -105,6 +108,7 @@ HEADERS += \
 FORMS += \
     CDialog/CDialogManage/CDialogManage.ui \
     CDialog/CHandleOnGoingStateDialog/CHandleOnGoingStateDialog.ui \
+    CDialog/CHandlePauseStateDialog/CHandlePauseStateDialog.ui \
     ClientBar/CDigitalBar/CDigitalBar.ui \
     ClientBar/CMenuBar/CMenuBar.ui \
     ClientBar/CStatusBar/CStatusBar.ui \

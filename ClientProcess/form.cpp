@@ -1,10 +1,11 @@
 #include "form.h"
 #include "../../Output/FetalProcess/ui_form.h"
 #include "../Common/MyCommon.h"
+#include "CViewHelp/CViewHelp.h"
 Form::Form(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::Form)
-    //m_DialogManage(this)
+    ui(new Ui::Form),
+    m_DialogManage(this)
 {
     ui->setupUi(this);
 }
@@ -20,11 +21,6 @@ void Form::initModule()
     initSlot();
 }
 
-void Form::onReadStandardOutput()
-{
-
-}
-
 void Form::initView()
 {
     setWindowFlags(Qt::FramelessWindowHint);
@@ -34,25 +30,10 @@ void Form::initView()
     int posX = (winWidth - this->width())/2;
     int posY = (winHeight - this->height())/2;
     move(posX,posY);
-//    ui->startRecordBtn->setIcon(QIcon(":/Image/MenuBar/FetalStartRecord.svg"));
-//    ui->startRecordBtn->setIconSize(QSize(60,60));
-//    ui->startRecordBtn->initPageButton();
 }
 
 void Form::initSlot()
 {
-    //connect(ui->startRecordBtn,&QPushButton::clicked,ui->mainView,&CMainView::onStartRecord);
-//    connect(ui->digitalBar,&CDigitalBar::signalFetalHeartOneData,ui->mainView,[=](int data){
-//        ui->fetalDataOneLabel->setText(QString().setNum(data));
-//    });
-//    connect(ui->digitalBar,&CDigitalBar::signalFetalHeartTwoData,ui->mainView,[=](int data){
-//        ui->fetalDataTwoLabel->setText(QString().setNum(data));
-//    });
-//    connect(ui->digitalBar,&CDigitalBar::signalFetalHeartThreeData,ui->mainView,[=](int data){
-//        ui->fetalDataThreeLabel->setText(QString().setNum(data));
-//    });
-//    connect(ui->toolButton,&QPushButton::clicked,this,[=](){
-//       m_DialogManage.show();
-//       m_DialogManage.exec();
-//    });
+    connect(CViewHelp::getInstance(),&CViewHelp::signalShowDealOnGoingRecordDialog,&m_DialogManage,&CDialogManage::onShowHandleOnGoingStateDialog);
+    connect(CViewHelp::getInstance(),&CViewHelp::signalShowDealPauseRecordDialog,&m_DialogManage,&CDialogManage::onShowHandlePauseStateDialog);
 }

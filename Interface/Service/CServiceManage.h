@@ -32,6 +32,8 @@ protected:
     void freeServiceLoop();
 public:
     void initServiceLoop();
+    void createServiceLoop();
+    void startServiceLoop();
     void registerService(IService* service,SERVICE_THREAD_ID serviceThreadId = SERVICE_THREAD_ID::ServiceThread0);
     void initModule();
     void initServiceModule();

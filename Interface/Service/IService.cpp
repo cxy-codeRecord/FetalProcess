@@ -40,4 +40,24 @@ bool IService::getServiceHandleFunc(const QString &funcName, function<QSharedPoi
     return false;
 }
 
+function<void(void)> IService::getServiceInitHandleFunc()
+{
+    return m_serviceInitFunc;
+}
+
+function<void(void)> IService::getServiceExitHandleFunc()
+{
+    return m_serviceExitFunc;
+}
+
+void IService::registerServiceInitHandleFunc(function<void ()> func)
+{
+    m_serviceInitFunc = func;
+}
+
+void IService::registerServiceExitHandleFunc(function<void ()> func)
+{
+    m_serviceExitFunc = func;
+}
+
 

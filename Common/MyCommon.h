@@ -7,6 +7,7 @@
 #include <QMetaObject>
 #include <QMetaProperty>
 #include <QVariant>
+#include <QString>
 using namespace std;
 //单例使用双检查锁机制，防止多线程调度时多次对象生成
 //使用智能指针防止程序结束时发生内存泄漏
@@ -85,10 +86,7 @@ protected:\
 
 
 #define RECVHANDLE_FUNC_SUFFIX "RecvHandle"
-#define DEF_FUNC_NAME(x) #x
-#define DEF_SERVICE_NAME(x) #x
-#define DEF_RECV_RESPONSE_FUNC_NAME(x) #x RECVHANDLE_FUNC_SUFFIX
-#define DEF_VIEW_NAME(x) #x
+#define DEF_RECV_RESPONSE_FUNC_NAME(x) x RECVHANDLE_FUNC_SUFFIX
 #define CMAINWIN_WIDTH  1680
 #define CMAINWIN_HEIGHT 1080
 #define FHR_YAXIS_OFFSET 50

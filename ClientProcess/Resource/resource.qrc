@@ -1,8 +1,5 @@
 <RCC>
     <qresource prefix="/Image">
-        <file>MenuBar/FetalStartRecord.png</file>
-        <file>MenuBar/FetalStopRecord.png</file>
-        <file>MenuBar/FetalStartRecord.svg</file>
         <file>DigitalBar/FHR1Heart1.png</file>
         <file>DigitalBar/FHR1Heart2.png</file>
         <file>DigitalBar/FHR1Heart3.png</file>
@@ -20,6 +17,15 @@
         <file>DigitalBar/FECGHeart2.png</file>
         <file>DigitalBar/FECGHeart3.png</file>
         <file>DigitalBar/FECGHeart4.png</file>
+        <file>MenuBar/Log.png</file>
+        <file>MenuBar/Main.png</file>
+        <file>MenuBar/NIBP.png</file>
+        <file>MenuBar/Note.png</file>
+        <file>MenuBar/Print.png</file>
+        <file>MenuBar/Signal.png</file>
+        <file>MenuBar/TocoZero.png</file>
+        <file>MenuBar/Start.png</file>
+        <file>MenuBar/Stop.png</file>
     </qresource>
     <qresource prefix="/">
         <file>font/SourceHanSansCN-Heavy.otf</file>

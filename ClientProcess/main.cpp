@@ -11,19 +11,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    //qDebug()<<"main:"<<QThread::currentThreadId();
-//    QFontDatabase fontDataBase;
-//    int fontId = fontDataBase.addApplicationFont(":/font/SourceHanSansCN-Heavy.otf");
-//    QStringList fontStringList = fontDataBase.applicationFontFamilies(fontId);
-//    if(fontStringList.length()>0)
-//    {
-//        QString fontName = fontDataBase.applicationFontFamilies(fontId).at(0);
-//        QStringList fontList = fontDataBase.families();
-//        QFont font;
-//        font.setFamily(fontName);
-//        font.setWeight(QFont::Weight::Medium);
-//        a.setFont(font);
-//    }
     QProcess process;
     QString program = "D:/FetalProcessCode/Output/ControlProcess/debug/ControlProcess.exe";
     process.start(program,QStringList());

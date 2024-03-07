@@ -15,7 +15,7 @@ class Form : public QMainWindow
     SINGLETON(Form)
 protected:
     QProcess m_process;
-//    /CDialogManage m_DialogManage;
+    CDialogManage m_DialogManage;
 protected:
     void initView();
     void initSlot();
@@ -25,8 +25,6 @@ public:
     void initModule();
 private:
     Ui::Form *ui;
-protected slots:
-    void onReadStandardOutput();
 };
 
 #endif // FORM_H

@@ -17,6 +17,10 @@ protected:
     SERVICE_THREAD_ID m_serviceThreadId = SERVICE_THREAD_ID::ServiceThread0;
     QMap<QString,function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)>> m_mapServiceHandleFunc;
     virtual void registerService(const IService* service,const SERVICE_THREAD_ID& threadId)=0;
+    virtual void registerServiceInitHandleFunc(function<void(void)>func);
+    virtual void registerServiceExitHandleFunc(function<void(void)>func);
+    function<void(void)>m_serviceInitFunc = nullptr;
+    function<void(void)>m_serviceExitFunc = nullptr;
 public:
     QString getServiceName();
     SERVICE_THREAD_ID getServiceThreadId();
@@ -24,10 +28,12 @@ public:
     IService(const QString& serviceName,const SERVICE_THREAD_ID& threadId,QObject* parent=nullptr);
     virtual ~IService();
     virtual void initModule() = 0;
-    virtual void exitModule() = 0;
+    //virtual void exitModule() = 0;
     void registerServiceHandleFunc(const QString&& funcName,function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)> func);
     bool getServiceHandleFunc(const QString& funcName,function<QSharedPointer<CDataStreamBase>(QSharedPointer<CDataStreamBase>)>&func);
     virtual void startTimerHandle(int ms,QSharedPointer<CDataStreamBase> base) = 0;
+    function<void(void)> getServiceInitHandleFunc();
+    function<void(void)> getServiceExitHandleFunc();
 signals:
     void signalSendResponse(const QString funcName,const QSharedPointer<CDataStreamBase> responsePack);
 };

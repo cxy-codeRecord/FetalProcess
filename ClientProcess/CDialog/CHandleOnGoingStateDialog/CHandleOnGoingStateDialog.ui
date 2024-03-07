@@ -74,7 +74,7 @@
       <number>10</number>
      </property>
      <item>
-      <widget class="QPushButton" name="cancelRecordBtn">
+      <widget class="QPushButton" name="pauseRecordBtn">
        <property name="minimumSize">
         <size>
          <width>35</width>
@@ -88,10 +88,11 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:#00ACFF</string>
+        <string notr="true">background-color:#00ACFF
+</string>
        </property>
        <property name="text">
-        <string>Cancel</string>
+        <string>Pause Record</string>
        </property>
       </widget>
      </item>
@@ -118,7 +119,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pauseRecordBtn">
+      <widget class="QPushButton" name="cancelRecordBtn">
        <property name="minimumSize">
         <size>
          <width>35</width>
@@ -132,11 +133,10 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:#00ACFF
-</string>
+        <string notr="true">background-color:#00ACFF</string>
        </property>
        <property name="text">
-        <string>Pause Record</string>
+        <string>Cancel</string>
        </property>
       </widget>
      </item>
@@ -144,9 +144,6 @@
    </widget>
   </widget>
  </widget>
- <tabstops>
-  <tabstop>pauseRecordBtn</tabstop>
- </tabstops>
  <resources/>
  <connections/>
 </ui>

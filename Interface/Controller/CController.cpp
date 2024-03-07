@@ -16,8 +16,10 @@ void CController::initModule()
 
 void CController::initServiceManage()
 {
-    m_pServiceManage->initServiceLoop();
+    //m_pServiceManage->initServiceLoop();
+    m_pServiceManage->createServiceLoop();
     CServiceGenerator::getInstance()->initModule();
+    m_pServiceManage->startServiceLoop();
 }
 
 void CController::initWidgetViewManage()

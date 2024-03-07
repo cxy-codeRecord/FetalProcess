@@ -1,6 +1,7 @@
 #include "CDigitalBar.h"
 #include "ui_CDigitalBar.h"
 #include "../Common/View/ViewCommon.h"
+#include "../Common/Service/ServiceCommon.h"
 CDigitalBar::CDigitalBar(QWidget *parent) :
     CWidgetView (CDIGITALBAR_NAME,parent),
     ui(new Ui::CDigitalBar)

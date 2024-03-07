@@ -9,6 +9,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 //#include "../Common/MyCommon.h"
+#include "../../Common/Service/ServiceCommon.h"
 #include "../../Common/View/ViewCommon.h"
 CTGView::CTGView(QWidget *parent) : CWidgetView(CTGVIEW_NAME,parent)
 {
@@ -40,18 +41,6 @@ void CTGView::init()
     initZoomStateYRange();
     initSlot();
     handlePrinterUnitState(0);
-//    QPushButton* btn = new QPushButton("0",this);
-//    QPushButton* btn2 = new QPushButton("1",this);
-//    QPushButton* btn3 = new QPushButton("2",this);
-//    btn->resize(50,50);
-//    btn2->resize(50,50);
-//    btn3->resize(50,50);
-//    btn->move(0,0);
-//    btn2->move(200,0);
-//    btn3->move(400,0);
-//    connect(btn,&QPushButton::clicked,this,[this]{this->handlePrinterUnitState(0);});
-//    connect(btn2,&QPushButton::clicked,this,[this]{this->handlePrinterUnitState(1);});
-//    connect(btn3,&QPushButton::clicked,this,[this]{this->handlePrinterUnitState(2);});
     m_CustomPlot->setNoAntialiasingOnDrag(true);
 }
 
@@ -128,14 +117,8 @@ void CTGView::initBackGround()
 
 void CTGView::initSlot()
 {
-//    if(m_CustomPlot->xAxis&&m_CustomPlot->xAxis2)
-//    {
-        connect(m_CustomPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), m_CustomPlot->xAxis2, SLOT(setRange(QCPRange)));
-//    }
+    connect(m_CustomPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), m_CustomPlot->xAxis2, SLOT(setRange(QCPRange)));
     connect(m_CustomPlot->yAxis, SIGNAL(rangeChanged(const QCPRange&,const QCPRange&)), this, SLOT(limitYRangeChanged(const QCPRange&,const QCPRange&)));
-//    connect(this, &QQuickPaintedItem::widthChanged, this, &CQuickCustomPlot::updateChartViewSize);
-//    connect(this, &QQuickPaintedItem::heightChanged, this, &CQuickCustomPlot::updateChartViewSize);
-//    connect(m_CustomPlot, &QCustomPlot::afterReplot, this, &CTGView::updateQuickCustomPlotUI);//很重要，少了这个信号槽，qml的chart界面无法刷新
     connect(&m_timer,&QTimer::timeout,this,&CTGView::timeoutHandle);
     connect(m_CustomPlot,&QCustomPlot::mouseWheel,this,&CTGView::mouseWheel);
     connect(this,&CTGView::signalPrinterUnitState,m_Grid,&CGrid::handlePrinterUnitState);
@@ -190,22 +173,64 @@ void CTGView::initZoomStateYRange()
 void CTGView::initModule()
 {
     registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(SERVICE_FUNC_GET_FETAL_HEART_DATA),bind(&CTGView::getFetalHeartDataRecvHandle,this,std::placeholders::_1));
+    registerRecvResponseHandle(DEF_RECV_RESPONSE_FUNC_NAME(SERVICE_FUNC_CONTROLLER_RECORD),bind(&CTGView::controllerRecordRecvHandle,this,std::placeholders::_1));
+}
+
+void CTGView::clearGraphData()
+{
+    m_FHR1Graph->data().data()->clear();
+    m_FHR2Graph->data().data()->clear();
+    m_FHR3Graph->data().data()->clear();
+    m_FMGraph->data().data()->clear();
+    m_TOCOGraph->data().data()->clear();
+    m_fetalDataIndex = 0;
 }
 
 void CTGView::getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase> data)
 {
     CDataStream<CFetalHeartData>* ptr = data->toDataStream<CDataStream<CFetalHeartData>>();
-    static int dataIndex = 0;
     if(ptr)
     {
         int heartOne = ptr->data.fetalHeartOne + FHR_YAXIS_OFFSET;
         int heartTwo = ptr->data.fetalHeartTwo + FHR_YAXIS_OFFSET;
         int heartThree = ptr->data.fetalHeartThree + FHR_YAXIS_OFFSET;
-        m_FHR1Graph->addData(dataIndex,double(heartOne));
-        m_FHR2Graph->addData(dataIndex,double(heartTwo));
-        m_FHR3Graph->addData(dataIndex,double(heartThree));
+        m_FHR1Graph->addData(m_fetalDataIndex,double(heartOne));
+        m_FHR2Graph->addData(m_fetalDataIndex,double(heartTwo));
+        m_FHR3Graph->addData(m_fetalDataIndex,double(heartThree));
     }
-    dataIndex++;
+    m_fetalDataIndex++;
+}
+
+void CTGView::controllerRecordRecvHandle(QSharedPointer<CDataStreamBase> data)
+{
+    if(!data.isNull())
+    {
+        CDataStream<CRecordState>* ptr = data->toDataStream<CDataStream<CRecordState>>();
+        if(ptr)
+        {
+            CRecordState currentState = ptr->data;
+            m_recordState = currentState;
+            switch (m_recordState)
+            {
+            case CRecordState::IDLE_STATE:
+            {
+                clearGraphData();
+                m_timer.stop();
+                break;
+            }
+            case CRecordState::ONGOING_STATE:
+            {
+                m_timer.start();
+                break;
+            }
+            case CRecordState::PAUSE_STATE:
+            {
+                m_timer.stop();
+                break;
+            }
+            }
+        }
+    }
 }
 
 

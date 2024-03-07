@@ -10,6 +10,7 @@ void CPageButton::initPageButton()
     this->setStyleSheet("QToolButton\
     {\
     background-color:transparent;\
+    color:white\
     }\
     QToolButton:pressed\
     {\
@@ -18,5 +19,9 @@ void CPageButton::initPageButton()
     QToolButton:released\
     {\
     background-color:transparent;\
-                        }");
+    }\
+    QToolButton:hover\
+    {\
+    background-color:#515151;\
+    }");
 }

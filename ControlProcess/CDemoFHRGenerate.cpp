@@ -8,7 +8,14 @@ CDemoFHRGenerate::CDemoFHRGenerate(QObject *parent) : QObject(parent),
     m_demoFetalHeartThreeSize(sizeof(g_DemoFetalHeartThreeData)/sizeof(int)),
     m_demoFetalHeartThreeIndex(0)
 {
-   qDebug()<<"m_demoFetalHeartOneSize:"<<m_demoFetalHeartOneSize;
+    qDebug()<<"m_demoFetalHeartOneSize:"<<m_demoFetalHeartOneSize;
+}
+
+void CDemoFHRGenerate::resetDemoFetalHeartIndex()
+{
+    m_demoFetalHeartOneIndex = 0;
+    m_demoFetalHeartTwoIndex = 0;
+    m_demoFetalHeartThreeIndex = 0;
 }
 
 int CDemoFHRGenerate::getDemoFetalHeartOneData()

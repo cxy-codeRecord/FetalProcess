@@ -34,7 +34,7 @@ void CServiceManage::initServiceModule()
    while(it!=m_mapServiceLoop.end())
    {
        CServiceLoop* loop = it.value();
-       loop->initService();
+       loop->initServiceModule();
        it++;
    }
 }
@@ -74,8 +74,36 @@ void CServiceManage::initServiceLoop()
         CServiceLoop* serviceLoop = new CServiceLoop();
         connect(serviceLoop,&CServiceLoop::signalSendResponse,this,&CServiceManage::signalSendResponse,Qt::QueuedConnection);
         m_mapServiceLoop[(SERVICE_THREAD_ID)i] = serviceLoop;
+        qDebug()<<"serviceLoop"<<i<<" initModule begin";
         serviceLoop->initModule();
+        qDebug()<<"serviceLoop"<<i<<" initModule end";
     }
+}
+
+void CServiceManage::createServiceLoop()
+{
+    unique_lock<mutex> lock(m_mutex);
+    for(int i=0;i<SERVICE_THREAD_COUNT;i++)
+    {
+        qDebug()<<"create serviceLoop begin";
+        CServiceLoop* serviceLoop = new CServiceLoop();
+        connect(serviceLoop,&CServiceLoop::signalSendResponse,this,&CServiceManage::signalSendResponse,Qt::QueuedConnection);
+        m_mapServiceLoop[(SERVICE_THREAD_ID)i] = serviceLoop;
+        qDebug()<<"create serviceLoop end";
+    }
+}
+
+void CServiceManage::startServiceLoop()
+{
+    unique_lock<mutex> lock(m_mutex);
+    for(int i=0;i<SERVICE_THREAD_COUNT;i++)
+    {
+        CServiceLoop* serviceLoop = m_mapServiceLoop[(SERVICE_THREAD_ID)i];
+        qDebug()<<"serviceLoop"<<i<<" initModule begin";
+        serviceLoop->initModule();
+        qDebug()<<"serviceLoop"<<i<<" initModule end";
+    }
+
 }
 
 void CServiceManage::freeServiceLoop()

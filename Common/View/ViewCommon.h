@@ -5,5 +5,6 @@
 #define CMENUBAR_NAME "CMenuBar"
 #define CSTATUSBAR_NAME "CStatusBar"
 #define CMAINVIEW_NAME "CMainView"
-#define CHANDONGOINGSTATEVIWE_NAME "CHandleOnGoingStateView"
+#define CHANDLE_ONGOINGSTATE_VIWE_NAME "CHandleOnGoingStateView"
+#define CHANDLE_PAUSESTATE_VIWE_NAME "CHandleOnGoingStateView"
 #endif

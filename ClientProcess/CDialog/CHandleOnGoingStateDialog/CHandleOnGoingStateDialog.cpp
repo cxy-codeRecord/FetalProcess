@@ -4,7 +4,7 @@
 #include "../Common/CDataStructs.h"
 #include "../Common/Service/ServiceCommon.h"
 CHandleOnGoingStateDialog::CHandleOnGoingStateDialog(QWidget *parent) :
-    CWidgetView(CHANDONGOINGSTATEVIWE_NAME,parent),
+    CWidgetView(CHANDLE_ONGOINGSTATE_VIWE_NAME,parent),
     ui(new Ui::CHandleOnGoingStateDialog)
 {
     ui->setupUi(this);
@@ -21,6 +21,7 @@ void CHandleOnGoingStateDialog::initModule()
     ui->frame->move((this->width()-ui->frame->width())/2,(this->height()-ui->frame->height())/2);
     connect(ui->pauseRecordBtn,&QPushButton::clicked,this,&CHandleOnGoingStateDialog::onPauseRecord);
     connect(ui->endRecordBtn,&QPushButton::clicked,this,&CHandleOnGoingStateDialog::onEndRecord);
+    connect(ui->cancelRecordBtn,&QPushButton::clicked,this,&CHandleOnGoingStateDialog::onCancel);
 }
 
 void CHandleOnGoingStateDialog::onPauseRecord()
@@ -40,6 +41,11 @@ void CHandleOnGoingStateDialog::onEndRecord()
     ptr->serviceName = CNETSERVICE_NAME;
     ptr->handleFuncName = SERVICE_FUNC_CONTROLLER_RECORD;
     requestService(ptr);
+    emit signalClose();
+}
+
+void CHandleOnGoingStateDialog::onCancel()
+{
     emit signalClose();
 }
 

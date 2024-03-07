@@ -16,13 +16,104 @@
   <property name="styleSheet">
    <string notr="true">background-color:#000000</string>
   </property>
-  <widget class="CPageButton" name="startRecordBtn">
+  <widget class="CPageButton" name="controllerRecordBtn">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>810</y>
+     <y>780</y>
      <width>131</width>
-     <height>71</height>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="zeroIUPBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>120</y>
+     <width>131</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="NoteBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>340</y>
+     <width>131</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="LogBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>450</y>
+     <width>131</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="SignalBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>560</y>
+     <width>131</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="SystemMenuBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>670</y>
+     <width>131</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="printerBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>890</y>
+     <width>131</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="CPageButton" name="nibpBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>230</y>
+     <width>131</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="text">

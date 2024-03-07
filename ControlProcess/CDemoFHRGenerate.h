@@ -17,6 +17,7 @@ protected:
     int m_demoFetalHeartThreeIndex;
 public:
     explicit CDemoFHRGenerate(QObject *parent = nullptr);
+    void resetDemoFetalHeartIndex();
     int getDemoFetalHeartOneData();
     int getDemoFetalHeartTwoData();
     int getDemoFetalHeartThreeData();

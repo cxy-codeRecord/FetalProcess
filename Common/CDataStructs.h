@@ -17,6 +17,7 @@ public:
         T* ptr =  dynamic_cast<T*>(this);
         return ptr;
     }
+
     CDataStreamBase(){}
     virtual ~CDataStreamBase(){}
 };

@@ -38,7 +38,9 @@ protected:
     void initGrid();
     void initZoomStateYRange();
     void initModule();
+    void clearGraphData();
     void getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase>data);
+    void controllerRecordRecvHandle(QSharedPointer<CDataStreamBase>data);
 protected:
     double calculate1CM();
     double calculate2CM();
@@ -59,6 +61,7 @@ public slots:
     void mouseMove(QMouseEvent* e);
 protected:
     QTimer m_timer;
+    int m_fetalDataIndex = 0;
 protected:
     QCustomPlot* m_CustomPlot = nullptr;
     CBackGround* m_pCBackGround = nullptr;
@@ -84,6 +87,8 @@ protected:
     QCPRange m_zoomState0YRange;
     QCPRange m_zoomState1YRange;
     QCPRange m_zoomState2YRange;
+protected:
+    CRecordState m_recordState = CRecordState::IDLE_STATE;
 };
 
 #endif // CTGVIEW_H

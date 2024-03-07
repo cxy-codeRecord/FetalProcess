@@ -41,6 +41,11 @@ void ControlProcess::stop()
     }
 }
 
+void ControlProcess::resetCTGData()
+{
+    m_demoFHRGenerate.resetDemoFetalHeartIndex();
+}
+
 
 
 void ControlProcess::onNewConnection()
@@ -62,12 +67,12 @@ void ControlProcess::onNewConnection()
     connect(m_clientSockDataHandle.get(),&ClientSockDataHandle::signalStartRecord,this,[=](){
         emit signalStartRecord();
     },Qt::QueuedConnection);
-//    connect(m_clientSockDataHandle.get(),&ClientSockDataHandle::signalPauseRecord,this,[=](){
-//        m_uploadCTGDataTimer.stop();
-//    },Qt::QueuedConnection);
-//    connect(m_clientSockDataHandle.get(),&ClientSockDataHandle::signalEndRecord,this,[=](){
-//        m_uploadCTGDataTimer.stop();
-//    },Qt::QueuedConnection);
+    connect(m_clientSockDataHandle.get(),&ClientSockDataHandle::signalPauseRecord,this,[=](){
+        emit signalPauseRecord();
+    },Qt::QueuedConnection);
+    connect(m_clientSockDataHandle.get(),&ClientSockDataHandle::signalEndRecord,this,[=](){
+        emit signalEndRecord();
+    },Qt::QueuedConnection);
 
 
 }
@@ -113,3 +118,4 @@ void ControlProcess::onUpLoadCTGData()
     stream<<int(demoFetalHeartThreeData);
     m_clientSockDataHandle.get()->sendNetData(CNetMessageType::UPLOAD_CTG_POINTS,data.data);
 }
+

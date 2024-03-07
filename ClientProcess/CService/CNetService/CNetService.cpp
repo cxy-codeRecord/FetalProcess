@@ -3,18 +3,18 @@
 bool CNetService::connectTo(QString ip, int port)
 {
     m_controlSocket->connectToHost(ip, port);
-    return m_controlSocket->waitForConnected();
+    return m_controlSocket->waitForConnected(80000);
 }
 
 QSharedPointer<CDataStreamBase> CNetService::sendNetData(QSharedPointer<CDataStreamBase> dataStream)
 {
-    if(m_controlSocket.isNull())
-    {
-        m_controlSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
-        m_controlSockDataHandle = QSharedPointer<ControlSockDataHandle>(new ControlSockDataHandle(m_controlSocket.get()));
-        connect(m_controlSockDataHandle.get(),&ControlSockDataHandle::signalSendResponse,this,&CNetService::signalSendResponse,Qt::QueuedConnection);
-        connectTo("127.0.0.1",8890);
-    }
+//    if(m_controlSocket.isNull())
+//    {
+//        m_controlSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
+//        m_controlSockDataHandle = QSharedPointer<ControlSockDataHandle>(new ControlSockDataHandle(m_controlSocket.get()));
+//        connect(m_controlSockDataHandle.get(),&ControlSockDataHandle::signalSendResponse,this,&CNetService::signalSendResponse,Qt::QueuedConnection);
+//        connectTo("127.0.0.1",8890);
+//    }
     CDataStream<CNetData>* netData = dataStream->toDataStream<CDataStream<CNetData>>();
     QSharedPointer<CDataStream<bool>> ret = QSharedPointer<CDataStream<bool>>(new CDataStream<bool>);
     ret->data = false;
@@ -32,13 +32,6 @@ QSharedPointer<CDataStreamBase> CNetService::sendNetData(QSharedPointer<CDataStr
 QSharedPointer<CDataStreamBase> CNetService::recvNetData(QSharedPointer<CDataStreamBase> dataStream)
 {
     QSharedPointer<CDataStreamBase> ret;
-    if(m_controlSocket.isNull())
-    {
-        m_controlSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
-        m_controlSockDataHandle = QSharedPointer<ControlSockDataHandle>(new ControlSockDataHandle(m_controlSocket.get()));
-        connect(m_controlSockDataHandle.get(),&ControlSockDataHandle::signalSendResponse,this,&CNetService::signalSendResponse,Qt::QueuedConnection);
-        connectTo("127.0.0.1",8890);
-    }
     if(m_controlSocket->waitForReadyRead(10))
     {
         m_controlSockDataHandle->recvNetData();
@@ -94,8 +87,25 @@ QSharedPointer<CDataStreamBase> CNetService::controllerRecord(QSharedPointer<CDa
     return state;
 }
 
+void CNetService::serviceInit()
+{
+    m_controlSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
+    m_controlSockDataHandle = QSharedPointer<ControlSockDataHandle>(new ControlSockDataHandle(m_controlSocket.get()));
+    connect(m_controlSockDataHandle.get(),&ControlSockDataHandle::signalSendResponse,this,&CNetService::signalSendResponse,Qt::QueuedConnection);
+    connectTo("127.0.0.1",8890);
+}
+
+void CNetService::serviceExit()
+{
+    m_controlSocket->close();
+    m_controlSockDataHandle.reset();
+    m_controlSocket.reset();
+}
+
 void CNetService::initModule()
 {
+   registerServiceInitHandleFunc(bind(&CNetService::serviceInit,this));
+   registerServiceExitHandleFunc(bind(&CNetService::serviceExit,this));
    registerServiceHandleFunc(SERVICE_FUNC_RECV_NETDATA,bind(&CNetService::recvNetData,this,std::placeholders::_1));
    registerServiceHandleFunc(SERVICE_FUNC_CONTROLLER_RECORD,bind(&CNetService::controllerRecord,this,std::placeholders::_1));
    QSharedPointer<CDataStreamBase> data = QSharedPointer<CDataStreamBase>(new CDataStreamBase);
@@ -104,12 +114,6 @@ void CNetService::initModule()
    startTimerHandle(200,data);
 }
 
-void CNetService::exitModule()
-{
-    m_controlSocket->close();
-    m_controlSockDataHandle.reset();
-    m_controlSocket.reset();
-}
 
 CNetService::~CNetService()
 {

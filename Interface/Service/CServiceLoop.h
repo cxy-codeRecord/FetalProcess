@@ -25,11 +25,15 @@ public:
     void exitMoudle();
     void startRunning();
     void stopRunning();
-    void initService();
+    void initServiceModule();
     void run();
     void addService(const QString& serviceName,IService* service);
     bool containService(const QString& serviceName);
     void requestService(const QSharedPointer<CDataStreamBase> pack);
+protected:
+    void serviceInit();
+    void serviceExit();
+    void serviceRun();
 signals:
     //void signal_SendResponse(const CDataStreamWrapped pack);
     void signalSendResponse(const QString funcName,const QSharedPointer<CDataStreamBase> responsePack);

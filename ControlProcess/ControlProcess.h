@@ -22,6 +22,7 @@ public:
     void initModule();
     bool start(int port);
     void stop();
+    void resetCTGData();
 protected slots:
     void onNewConnection();
     void onConnected();
@@ -33,6 +34,8 @@ public slots:
 signals:
     void signalReadData(int type,QByteArray data,int dataIndex);
     void signalStartRecord();
+    void signalPauseRecord();
+    void signalEndRecord();
 };
 
 #endif // CONTROLPROCESS_H

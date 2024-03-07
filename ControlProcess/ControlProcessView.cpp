@@ -28,7 +28,15 @@ ControlProcessView::ControlProcessView(QWidget *parent) :
     connect(&m_controlProcess,&ControlProcess::signalStartRecord,this,[=]{
         m_timer.start(50);
     });
+    connect(&m_controlProcess,&ControlProcess::signalPauseRecord,this,[=]{
+        m_timer.stop();
+    });
+    connect(&m_controlProcess,&ControlProcess::signalEndRecord,this,[=]{
+        m_timer.stop();
+        m_controlProcess.resetCTGData();
+    });
     connect(&m_timer,&QTimer::timeout,&m_controlProcess,&ControlProcess::onUpLoadCTGData,Qt::QueuedConnection);
+
 }
 
 ControlProcessView::~ControlProcessView()

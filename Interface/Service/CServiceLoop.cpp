@@ -34,18 +34,84 @@ void CServiceLoop::stopRunning()
 
 }
 
-void CServiceLoop::initService()
+void CServiceLoop::initServiceModule()
 {
     unique_lock<mutex> lock(m_mutex);
     auto it = m_mapService.begin();
     while(it!=m_mapService.end())
     {
+        qDebug()<<"Service "<<it.key()<<" initModule begin";
         it.value()->initModule();
+        qDebug()<<"Service "<<it.key()<<" initModule end";
         it++;
     }
 }
 
 void CServiceLoop::run()
+{
+    serviceInit();
+    serviceRun();
+    serviceExit();
+}
+
+void CServiceLoop::addService(const QString &serviceName, IService *service)
+{
+    unique_lock<mutex> lock(m_mutex);
+    m_mapService[serviceName] = service;
+}
+
+
+bool CServiceLoop::containService(const QString &serviceName)
+{
+    unique_lock<mutex> lock(m_mutex);
+    bool ret = m_mapService.contains(serviceName);
+    return ret;
+}
+
+
+void CServiceLoop::requestService(const QSharedPointer<CDataStreamBase> pack)
+{
+    unique_lock<mutex> lock(m_mutex);
+    m_ServicePacks.push_back(pack);
+    m_condition.notify_all();
+}
+
+void CServiceLoop::serviceInit()
+{
+    unique_lock<mutex> lock(m_mutex);
+    auto it = m_mapService.begin();
+    while(it!=m_mapService.end())
+    {
+        function<void(void)> initFunc = it.value()->getServiceInitHandleFunc();
+        qDebug()<<"serviceInit "<<it.key()<<" begin";
+        if(initFunc)
+        {
+            initFunc();
+        }
+        qDebug()<<"serviceInit "<<it.key()<<" end";
+        it++;
+    }
+}
+
+void CServiceLoop::serviceExit()
+{
+    unique_lock<mutex> lock(m_mutex);
+    auto it = m_mapService.begin();
+    while(it!=m_mapService.end())
+    {
+        function<void(void)> exitFunc = it.value()->getServiceExitHandleFunc();
+        qDebug()<<"serviceExit "<<it.key()<<" begin";
+        if(exitFunc)
+        {
+            exitFunc();
+        }
+        qDebug()<<"serviceExit "<<it.key()<<" begin";
+        delete(it.value());
+        it++;
+    }
+}
+
+void CServiceLoop::serviceRun()
 {
     while(m_Running)
     {
@@ -77,37 +143,6 @@ void CServiceLoop::run()
            }
         }
     }
-    unique_lock<mutex> lock(m_mutex);
-    auto it = m_mapService.begin();
-    while(it!=m_mapService.end())
-    {
-        it.value()->exitModule();
-        delete(it.value());
-        it++;
-    }
-
-}
-
-void CServiceLoop::addService(const QString &serviceName, IService *service)
-{
-    unique_lock<mutex> lock(m_mutex);
-    m_mapService[serviceName] = service;
-}
-
-
-bool CServiceLoop::containService(const QString &serviceName)
-{
-    unique_lock<mutex> lock(m_mutex);
-    bool ret = m_mapService.contains(serviceName);
-    return ret;
-}
-
-
-void CServiceLoop::requestService(const QSharedPointer<CDataStreamBase> pack)
-{
-    unique_lock<mutex> lock(m_mutex);
-    m_ServicePacks.push_back(pack);
-    m_condition.notify_all();
 }
 
 CServiceLoop::~CServiceLoop()
