@@ -19,6 +19,7 @@ private:
     Ui::CDigitalBar *ui;
 protected:
     void getFetalHeartDataRecvHandle(QSharedPointer<CDataStreamBase>data);
+    void controllerRecordRecvHandle(QSharedPointer<CDataStreamBase>data);
 signals:
     void signalFetalHeartOneData(int data);
     void signalFetalHeartTwoData(int data);
