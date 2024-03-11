@@ -92,7 +92,7 @@ void CNetService::serviceInit()
     m_controlSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
     m_controlSockDataHandle = QSharedPointer<ControlSockDataHandle>(new ControlSockDataHandle(m_controlSocket.get()));
     connect(m_controlSockDataHandle.get(),&ControlSockDataHandle::signalSendResponse,this,&CNetService::signalSendResponse,Qt::QueuedConnection);
-    connectTo("127.0.0.1",8890);
+    connectTo("127.0.0.1",NET_PORT);
 }
 
 void CNetService::serviceExit()

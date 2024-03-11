@@ -1,6 +1,7 @@
 //存放网络的宏
 #ifndef CNETCOMMON_H
 #define CNETCOMMON_H
+#define NET_PORT 9980
 #define NET_HEAD_COMMAND1 0xDD
 #define NET_HEAD_COMMAND2 0xBB
 #define NET_HEAD_COMMAND3 0xAA
@@ -8,7 +9,6 @@
 #define NET_TAIL_COMMAND2 0xBB
 #define NET_TAIL_COMMAND3 0xAA
 #define NET_MIN_PACKET_LENGTH 3+4+2+4+0+3
-
 
 
 

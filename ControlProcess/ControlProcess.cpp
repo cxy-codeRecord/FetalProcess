@@ -1,5 +1,6 @@
 #include "ControlProcess.h"
 #include "../Common/Net/ClientSockDataHandle.h"
+#include "../Common/Net/CNetCommon.h"
 #include <QDataStream>
 #include <QIODevice>
 ControlProcess::ControlProcess()
@@ -18,7 +19,7 @@ void ControlProcess::initModule()
 {
     connect(&m_server, SIGNAL(newConnection()), this, SLOT(onNewConnection()),Qt::QueuedConnection);
     QThread::start();
-    start(8890);
+    start(NET_PORT);
 }
 
 bool ControlProcess::start(int port)
