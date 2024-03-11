@@ -19,6 +19,7 @@ protected:
     void initView();
     void initHandleOnGoingStateDialog();
     void initHandlePauseStateDialog();
+    void initSlot();
 public slots:
     void onShowHandleOnGoingStateDialog();
     void onShowHandlePauseStateDialog();

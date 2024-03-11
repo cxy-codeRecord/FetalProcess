@@ -34,6 +34,6 @@ void Form::initView()
 
 void Form::initSlot()
 {
-    connect(CViewHelp::getInstance(),&CViewHelp::signalShowDealOnGoingRecordDialog,&m_DialogManage,&CDialogManage::onShowHandleOnGoingStateDialog);
-    connect(CViewHelp::getInstance(),&CViewHelp::signalShowDealPauseRecordDialog,&m_DialogManage,&CDialogManage::onShowHandlePauseStateDialog);
+//    connect(CViewHelp::getInstance(),&CViewHelp::signalShowDealOnGoingRecordDialog,&m_DialogManage,&CDialogManage::onShowHandleOnGoingStateDialog);
+//    connect(CViewHelp::getInstance(),&CViewHelp::signalShowDealPauseRecordDialog,&m_DialogManage,&CDialogManage::onShowHandlePauseStateDialog);
 }
