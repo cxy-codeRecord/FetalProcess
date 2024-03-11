@@ -32,7 +32,7 @@ font:Bold 70px;
 }</string>
    </property>
    <property name="text">
-    <string>180</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="fetalDataThreeLabel">
@@ -51,7 +51,7 @@ font:Bold 70px;
 }</string>
    </property>
    <property name="text">
-    <string>180</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="mhrDataLabel">
@@ -70,7 +70,7 @@ font:Bold 70px;
 }</string>
    </property>
    <property name="text">
-    <string>180</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="mhrImage">
@@ -168,7 +168,7 @@ font:Bold 70px;
 }</string>
    </property>
    <property name="text">
-    <string>180</string>
+    <string>0</string>
    </property>
   </widget>
  </widget>

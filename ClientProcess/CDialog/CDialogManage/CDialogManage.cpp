@@ -1,6 +1,6 @@
 #include "CDialogManage.h"
 #include "../Common/Dialog/DialogCommon.h"
-#include "../../Output/FetalProcess/ui_CDialogManage.h"
+#include "../../Output/ClientProcess/ui_CDialogManage.h"
 CDialogManage::CDialogManage(QWidget *parent):
     QDialog(parent),
     ui(new Ui::Dialog)
