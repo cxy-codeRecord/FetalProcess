@@ -8,9 +8,11 @@
 #include <QProcess>
 #include <QThread>
 #include <QFontDatabase>
+#include "../Common/Log/CLogging.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    CLogging::getInstance()->initModule(CLogLevel::CLOG_DEBUG,"D:/FetalProcessCode/Output/log.txt");
     QProcess process;
     QString program = "D:/FetalProcessCode/Output/ControlProcess/debug/ControlProcess.exe";
     process.start(program,QStringList());

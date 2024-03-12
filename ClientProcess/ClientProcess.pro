@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ../Common/Log/CLogging.cpp \
         ../Common/Net/CNetMessage.cpp \
         ../Common/Net/CSockBuffer.cpp \
         ../Common/Net/CSockDataHandle.cpp \
@@ -65,6 +66,7 @@ SOURCES += \
 HEADERS += \
         ../Common/CDataStructs.h \
         ../Common/Dialog/DialogCommon.h \
+        ../Common/Log/CLogging.h \
         ../Common/Net/CNetCommon.h \
         ../Common/Net/CNetDataStructs.h \
         ../Common/Net/CNetMessage.h \

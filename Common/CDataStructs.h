@@ -59,4 +59,13 @@ enum class CRecordCmd
     END_RECORD
 };
 
+enum class CLogLevel
+{
+    CLOG_DEBUG,
+    CLOG_INFO,
+    CLOG_WARNING,
+    CLOG_ERROR,
+    CLOG_CRITICAL
+};
+
 #endif // CDATASTRUCTS_H
