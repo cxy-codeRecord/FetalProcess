@@ -18,7 +18,6 @@ void CServiceLoop::exitMoudle()
     stopRunning();
     wait();
     quit();
-    deleteLater();
 }
 
 void CServiceLoop::startRunning()
